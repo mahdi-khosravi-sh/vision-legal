@@ -100,8 +100,32 @@
         .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
 
         .nav-header { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 50px; position: sticky; top: 20px; z-index: 100; }
-        .lang-nav, .theme-nav, .appearance-nav { background: var(--bg-card); backdrop-filter: blur(12px); padding: 8px; border-radius: 999px; box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; gap: 8px; }
+        .lang-nav, .theme-nav, .appearance-nav { background: var(--bg-card); backdrop-filter: blur(12px); padding: 8px; border-radius: 999px; box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; gap: 8px; align-items: center; }
         .appearance-nav { padding: 5px; gap: 4px; }
+
+        .theme-nav { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; max-width: 550px; }
+        .theme-nav.collapsed { max-width: 252px; }
+        .theme-dots-container { display: flex; gap: 8px; transition: all 0.5s; opacity: 1; width: 100%; }
+
+        .theme-dot:nth-child(n+5) {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1);
+            opacity: 1;
+            width: 40px;
+            margin-right: 0;
+        }
+
+        .theme-nav.collapsed .theme-dot:nth-child(n+5) {
+            width: 0;
+            opacity: 0;
+            transform: scale(0);
+            pointer-events: none;
+            margin-right: -8px;
+        }
+
+        .theme-toggle-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; color: var(--text-muted); transition: all 0.3s; border: none; background: transparent; flex-shrink: 0; }
+        .theme-toggle-btn:hover { background: var(--primary-soft); color: var(--primary); }
+        .theme-nav:not(.collapsed) .theme-toggle-btn { transform: rotate(-180deg); color: var(--primary); }
 
         .lang-nav a, .theme-dot { padding: 10px 30px; text-decoration: none; color: var(--text-muted); font-weight: 600; border-radius: 999px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 1rem; cursor: pointer; }
         .lang-nav a:hover { color: var(--primary); background: var(--primary-soft); }
@@ -189,15 +213,20 @@
                 </button>
             </div>
         </div>
-        <div class="theme-nav">
-            <div class="theme-dot dot-indigo active" data-theme="indigo" title="Indigo"></div>
-            <div class="theme-dot dot-emerald" data-theme="emerald" title="Emerald"></div>
-            <div class="theme-dot dot-rose" data-theme="rose" title="Rose"></div>
-            <div class="theme-dot dot-amber" data-theme="amber" title="Amber"></div>
-            <div class="theme-dot dot-violet" data-theme="violet" title="Violet"></div>
-            <div class="theme-dot dot-cyan" data-theme="cyan" title="Cyan"></div>
-            <div class="theme-dot dot-fuchsia" data-theme="fuchsia" title="Fuchsia"></div>
-            <div class="theme-dot dot-orange" data-theme="orange" title="Orange"></div>
+        <div class="theme-nav" id="theme-nav">
+            <button class="theme-toggle-btn" id="btn-theme-toggle" title="Accent Colors">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.7-.1 2.5-.3 1-.3 1.5-1.4 1.2-2.3-.3-1 .4-2 1.4-2.3H19c2.8 0 5-2.2 5-5 0-5.5-4.5-10-10-10z"></path></svg>
+            </button>
+            <div class="theme-dots-container">
+                <div class="theme-dot dot-indigo active" data-theme="indigo" title="Indigo"></div>
+                <div class="theme-dot dot-emerald" data-theme="emerald" title="Emerald"></div>
+                <div class="theme-dot dot-rose" data-theme="rose" title="Rose"></div>
+                <div class="theme-dot dot-amber" data-theme="amber" title="Amber"></div>
+                <div class="theme-dot dot-violet" data-theme="violet" title="Violet"></div>
+                <div class="theme-dot dot-cyan" data-theme="cyan" title="Cyan"></div>
+                <div class="theme-dot dot-fuchsia" data-theme="fuchsia" title="Fuchsia"></div>
+                <div class="theme-dot dot-orange" data-theme="orange" title="Orange"></div>
+            </div>
         </div>
     </header>
 
@@ -428,6 +457,20 @@
         dot.addEventListener('click', () => setAccent(dot.getAttribute('data-theme')));
     });
 
+    // Theme Bar Collapsible Logic
+    const themeNav = document.getElementById('theme-nav');
+    const btnThemeToggle = document.getElementById('btn-theme-toggle');
+
+    const toggleThemeBar = (isCollapsed) => {
+        themeNav.classList.toggle('collapsed', isCollapsed);
+        localStorage.setItem('vision-theme-collapsed', isCollapsed);
+    };
+
+    btnThemeToggle.addEventListener('click', () => {
+        const isCurrentlyCollapsed = themeNav.classList.contains('collapsed');
+        toggleThemeBar(!isCurrentlyCollapsed);
+    });
+
     // Appearance (Light/Dark) Logic
     const appearanceBtns = document.querySelectorAll('.appearance-btn');
     const setAppearance = (appearance) => {
@@ -464,10 +507,12 @@
     const savedTheme = localStorage.getItem('vision-theme') || 'indigo';
     const savedAppearance = localStorage.getItem('vision-appearance') || 'system';
     const savedLang = localStorage.getItem('vision-lang') || 'fa';
+    const savedThemeCollapsed = localStorage.getItem('vision-theme-collapsed') === 'true';
 
     setAccent(savedTheme);
     setAppearance(savedAppearance);
     setLanguage(savedLang);
+    toggleThemeBar(savedThemeCollapsed);
 </script>
 
 </body>
