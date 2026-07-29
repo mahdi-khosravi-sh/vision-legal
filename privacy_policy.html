@@ -13,6 +13,7 @@
             /* Base Colors (Light by default) */
             --bg-body: #f8fafc;
             --bg-card: #ffffff;
+            --bg-card-rgb: 255, 255, 255;
             --text-main: #1f2937;
             --text-muted: #6b7280;
             --border: #e2e8f0;
@@ -29,6 +30,7 @@
         [data-appearance="dark"] {
             --bg-body: #0f172a;
             --bg-card: #1e293b;
+            --bg-card-rgb: 30, 41, 59;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
             --border: #334155;
@@ -94,13 +96,56 @@
         [data-appearance="dark"][data-theme="orange"] { --primary-soft: rgba(249, 115, 22, 0.1); }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-body); color: var(--text-main); line-height: 1.8; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-body); color: var(--text-main); line-height: 1.8; transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s; overflow-x: hidden; }
 
-        .bg-gradient { position: fixed; top: 0; left: 0; right: 0; height: 450px; background: var(--gradient); z-index: -1; opacity: 0.12; clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 100%); transition: background 0.5s ease; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
 
-        .nav-header { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 50px; position: sticky; top: 20px; z-index: 100; }
-        .lang-nav, .theme-nav, .appearance-nav { background: var(--bg-card); backdrop-filter: blur(12px); padding: 8px; border-radius: 999px; box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; gap: 8px; align-items: center; }
+        /* Full Screen Canvas Background */
+        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.3; transition: opacity 0.5s; }
+        [data-appearance="dark"] #bg-canvas { opacity: 0.15; }
+
+        /* Navigation Header & Floating Island */
+        .nav-header { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 50px; position: sticky; top: 20px; z-index: 100; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        .nav-header.floating-island {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            flex-direction: row;
+            background: rgba(var(--bg-card-rgb), 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 8px 15px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            gap: 12px;
+            width: max-content;
+            max-width: 95vw;
+        }
+
+        .nav-header.floating-island .header-row { gap: 10px !important; }
+        .nav-header.floating-island .lang-nav,
+        .nav-header.floating-island .theme-nav,
+        .nav-header.floating-island .appearance-nav {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            backdrop-filter: none;
+        }
+
+        .nav-header.floating-island .lang-nav a { padding: 8px 15px; font-size: 0; }
+        .nav-header.floating-island .lang-nav a::after { content: attr(data-short); font-size: 0.85rem; }
+
+        .nav-header.floating-island .theme-dot { width: 28px; height: 28px; }
+        .nav-header.floating-island .theme-toggle-btn,
+        .nav-header.floating-island .appearance-btn { width: 32px; height: 32px; }
+
+        .nav-header.floating-island .theme-nav.collapsed { max-width: 175px; }
+        .nav-header.floating-island .theme-nav:not(.collapsed) { max-width: 400px; }
+
+        .lang-nav, .theme-nav, .appearance-nav { background: var(--bg-card); backdrop-filter: blur(12px); padding: 8px; border-radius: 999px; box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; gap: 8px; align-items: center; transition: all 0.3s; }
         .appearance-nav { padding: 5px; gap: 4px; }
 
         .theme-nav { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; max-width: 550px; }
@@ -146,17 +191,47 @@
         .dot-fuchsia { background: #d946ef; }
         .dot-orange { background: #f97316; }
 
-        .main-card { background: var(--bg-card); border-radius: 32px; padding: 80px; box-shadow: var(--shadow); border: 1px solid var(--border); animation: slideUp 0.8s ease-out; position: relative; }
+        /* Reading Progress Bar */
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--primary); z-index: 1000; width: 0%; transition: width 0.1s; border-radius: 0 2px 2px 0; }
+
+        /* Reading Time Badge */
+        .reading-time { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-soft); color: var(--primary); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; }
+
+        /* Anchors & Deep Links */
+        h2, h3 { position: relative; cursor: pointer; }
+        .anchor-link { position: absolute; left: -30px; top: 50%; transform: translateY(-50%); opacity: 0; transition: all 0.2s; color: var(--primary); display: flex; align-items: center; }
+        .rtl .anchor-link { left: auto; right: -30px; }
+        h2:hover .anchor-link, h3:hover .anchor-link { opacity: 1; left: -35px; }
+        .rtl h2:hover .anchor-link, .rtl h3:hover .anchor-link { left: auto; right: -35px; }
+
+        /* FAQ Accordion */
+        .faq-section { margin-top: 80px; border-top: 1px solid var(--border); padding-top: 60px; }
+        details { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s; }
+        details[open] { border-color: var(--primary); box-shadow: var(--shadow); }
+        summary { padding: 20px 25px; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--text-main); font-size: 1.1rem; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: "+"; font-size: 1.5rem; color: var(--text-muted); transition: transform 0.3s; }
+        details[open] summary::after { content: "−"; color: var(--primary); transform: rotate(180deg); }
+        .faq-content { padding: 0 25px 25px; color: var(--text-muted); line-height: 1.6; font-size: 1rem; }
+
+        /* Back to Top Button */
+        #back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--primary); color: white; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 1000; transform: translateY(20px); }
+        #back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        #back-to-top:hover { transform: scale(1.1); background: var(--primary-dark); }
+        .rtl #back-to-top { right: auto; left: 30px; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .main-card { background: var(--bg-card); border-radius: 32px; padding: 60px; box-shadow: var(--shadow); border: 1px solid var(--border); animation: slideUp 0.8s ease-out; position: relative; width: 100%; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-        .brand-section { text-align: center; margin-bottom: 70px; }
+        .brand-section { text-align: center; margin-bottom: 40px; }
         .app-icon { width: 100px; height: 100px; background: var(--primary); border-radius: 28px; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 50px; font-weight: 800; box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); margin-bottom: 25px; transition: background 0.3s ease; }
         h1 { font-size: 3rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
         .update-date { color: var(--text-muted); font-size: 1rem; font-weight: 500; margin-bottom: 20px; }
 
-        .intro-text { font-size: 1.15rem; color: var(--text-muted); text-align: center; max-width: 700px; margin: 0 auto 50px; line-height: 1.6; }
+        .intro-text { font-size: 1.15rem; color: var(--text-muted); text-align: center; max-width: 700px; margin: 0 auto 30px; line-height: 1.6; }
 
-        h2 { font-size: 1.8rem; color: var(--primary); margin: 60px 0 25px; display: flex; align-items: center; gap: 15px; }
+        h2 { font-size: 1.8rem; color: var(--primary); margin: 40px 0 20px; display: flex; align-items: center; gap: 15px; }
         h2::before { content: ""; width: 5px; height: 32px; background: var(--primary); border-radius: 99px; display: inline-block; }
 
         h3 { font-size: 1.3rem; margin: 35px 0 15px; color: var(--text-main); font-weight: 700; }
@@ -187,19 +262,67 @@
         .btn-print { margin-top: 40px; padding: 15px 35px; background: var(--primary); border: none; border-radius: 15px; cursor: pointer; color: #fff; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
         .btn-print:hover { transform: scale(1.05); opacity: 0.9; }
 
-        @media (max-width: 768px) { .main-card { padding: 50px 25px; } h1 { font-size: 2.2rem; } h2 { font-size: 1.5rem; } }
+        @media (max-width: 768px) { .main-card { padding: 40px 20px; } h1 { font-size: 2.2rem; } h2 { font-size: 1.5rem; } }
+
+        /* Quick Navigation Grid (Compact Tag style) */
+        .toc-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin: 0 auto 40px;
+            padding: 10px;
+            max-width: 900px;
+        }
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: var(--primary-soft);
+            border: 1px solid transparent;
+            border-radius: 99px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .toc-item:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .toc-item span {
+            width: 20px;
+            height: 20px;
+            background: rgba(var(--bg-card-rgb), 0.5);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+        .toc-item:hover span {
+            background: #fff;
+        }
     </style>
 </head>
-<body>
+<body id="top">
 
-<div class="bg-gradient"></div>
+<div id="progress-bar"></div>
+<canvas id="bg-canvas"></canvas>
 
 <div class="container">
     <header class="nav-header">
-        <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap; justify-content: center;">
+        <div class="header-row" style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap; justify-content: center; transition: all 0.3s;">
             <nav class="lang-nav">
-                <a href="#english" id="btn-en">English</a>
-                <a href="#persian" id="btn-fa" class="active">فارسی</a>
+                <a href="#english" id="btn-en" data-short="EN">English</a>
+                <a href="#persian" id="btn-fa" class="active" data-short="FA">فارسی</a>
             </nav>
             <div class="appearance-nav">
                 <button class="appearance-btn" data-appearance="light" title="Light Mode">
@@ -235,7 +358,12 @@
             <div class="app-icon">V</div>
             <h1>Vision</h1>
             <p class="update-date">Official Privacy Policy • سیاست رسمی حریم خصوصی</p>
-            <div class="intro-text">This policy explains our commitment to transparency, data integrity, and user-centric privacy within the Vision environment.</div>
+            <div id="reading-time" class="reading-time"></div>
+            <div id="intro-en" class="intro-text">This policy explains our commitment to transparency, data integrity, and user-centric privacy within the Vision environment.</div>
+            <div id="intro-fa" class="intro-text" style="display: none;">این سیاست، تعهد ما به شفافیت، یکپارچگی داده‌ها و حریم خصوصی کاربر-محور در محیط ویژن را توضیح می‌دهد.</div>
+
+            <!-- Dynamic Navigation Dashboard -->
+            <div id="toc-container" class="toc-container"></div>
         </div>
 
         <!-- ENGLISH SECTION -->
@@ -313,6 +441,46 @@
 
             <h2>7. Contact Information</h2>
             <p>If you have legal inquiries or technical questions regarding your privacy within Vision, please reach out via our official GitHub repository issue tracker.</p>
+
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <details>
+                    <summary>Is my data synchronized with Google Drive?</summary>
+                    <div class="faq-content">No. Vision is local-first. We do not sync your files to any cloud provider unless you manually export them.</div>
+                </details>
+                <details>
+                    <summary>Can other apps read my Vision clipboard history?</summary>
+                    <div class="faq-content">No. The clipboard history is stored in an encrypted database within Vision's private sandbox.</div>
+                </details>
+                <details>
+                    <summary>What happens if I lose my phone?</summary>
+                    <div class="faq-content">Since your data is only on the device, it cannot be recovered from our servers. We recommend regular manual backups of your important files.</div>
+                </details>
+                <details>
+                    <summary>Does Vision track my physical location?</summary>
+                    <div class="faq-content">No. Vision does not access your device's GPS or location sensors. All operations are local and location-agnostic.</div>
+                </details>
+                <details>
+                    <summary>Can I use the app without an internet connection?</summary>
+                    <div class="faq-content">Yes. Vision is designed to work fully offline. Internet is only required if you explicitly use the built-in browser or web-based features.</div>
+                </details>
+                <details>
+                    <summary>Are my local passwords and lockscreen patterns secure?</summary>
+                    <div class="faq-content">Absolutely. Your credentials are never stored in plain text. They are hashed and encrypted using AES before being saved to the local database.</div>
+                </details>
+                <details>
+                    <summary>Does Vision show advertisements?</summary>
+                    <div class="faq-content">No. Vision is a professional workspace environment and does not include any third-party advertising SDKs or tracking scripts.</div>
+                </details>
+                <details>
+                    <summary>Can I manage files on an external SD card or USB drive?</summary>
+                    <div class="faq-content">Yes. If you grant the "All Files Access" permission, Vision can manage files across all recognized storage volumes, including removable media.</div>
+                </details>
+                <details>
+                    <summary>What happens if I revoke a permission?</summary>
+                    <div class="faq-content">Vision will continue to function, but specific features related to that permission (e.g., the File Manager or Wallpaper picker) will be disabled until the permission is re-granted.</div>
+                </details>
+            </div>
         </section>
 
         <!-- PERSIAN SECTION -->
@@ -390,6 +558,46 @@
 
             <h2>۷. اطلاعات تماس</h2>
             <p>اگر پرسش حقوقی یا سوال فنی در مورد حریم خصوصی خود در ویژن دارید، لطفاً از طریق بخش Issue در مخزن رسمی گیت‌هاب ما با ما در ارتباط باشید.</p>
+
+            <div class="faq-section">
+                <h2>سوالات متداول</h2>
+                <details>
+                    <summary>آیا داده‌های من با گوگل درایو همگام‌سازی می‌شوند؟</summary>
+                    <div class="faq-content">خیر. ویژن مبتنی بر حافظه محلی است. ما فایل‌های شما را با هیچ فضای ابری همگام‌سازی نمی‌کنیم، مگر اینکه خودتان به صورت دستی از آن‌ها خروجی بگیرید.</div>
+                </details>
+                <details>
+                    <summary>آیا برنامه‌های دیگر می‌توانند تاریخچه کلیپ‌بورد من را بخوانند؟</summary>
+                    <div class="faq-content">خیر. تاریخچه کلیپ‌بورد در یک پایگاه داده رمزگذاری شده در محیط ایزوله اختصاصی ویژن ذخیره می‌شود.</div>
+                </details>
+                <details>
+                    <summary>اگر گوشی خود را گم کنم چه اتفاقی می‌افتد؟</summary>
+                    <div class="faq-content">از آنجایی که داده‌های شما فقط روی دستگاه است، از سرورهای ما قابل بازیابی نیست. توصیه می‌کنیم از فایل‌های مهم خود به طور مرتب نسخه پشتیبان دستی تهیه کنید.</div>
+                </details>
+                <details>
+                    <summary>آیا ویژن موقعیت مکانی من را ردیابی می‌کند؟</summary>
+                    <div class="faq-content">خیر. ویژن به جی‌پی‌اس (GPS) یا سنسورهای موقعیت مکانی دستگاه شما دسترسی ندارد. تمامی عملیات به صورت محلی و بدون نیاز به موقعیت مکانی انجام می‌شوند.</div>
+                </details>
+                <details>
+                    <summary>آیا می‌توانم بدون اتصال به اینترنت از برنامه استفاده کنم؟</summary>
+                    <div class="faq-content">بله. ویژن به گونه‌ای طراحی شده است که به طور کامل آفلاین کار کند. اینترنت تنها در صورتی لازم است که خودتان بخواهید از مرورگر داخلی یا ویژگی‌های وب‌محور استفاده کنید.</div>
+                </details>
+                <details>
+                    <summary>آیا رمزهای عبور محلی و الگوهای صفحه قفل من امن هستند؟</summary>
+                    <div class="faq-content">قطعاً. اعتبارنامه‌های شما هرگز به صورت متن ساده ذخیره نمی‌شوند. آن‌ها قبل از ذخیره شدن در پایگاه داده محلی، با استفاده از درهم‌سازی (Hashing) و رمزنگاری AES محافظت می‌شوند.</div>
+                </details>
+                <details>
+                    <summary>آیا ویژن تبلیغات نمایش می‌دهد؟</summary>
+                    <div class="faq-content">خیر. ویژن یک محیط کاری حرفه‌ای است و شامل هیچ‌گونه کیت توسعه (SDK) تبلیغاتی شخص ثالث یا اسکریپت‌های ردیابی نمی‌باشد.</div>
+                </details>
+                <details>
+                    <summary>آیا می‌توانم فایل‌های کارت حافظه یا فلش مموری را مدیریت کنم؟</summary>
+                    <div class="faq-content">بله. در صورت اعطای مجوز "دسترسی به همه فایل‌ها"، ویژن می‌تواند فایل‌ها را در تمامی حافظه‌های شناسایی شده، از جمله حافظه‌های جانبی، مدیریت کند.</div>
+                </details>
+                <details>
+                    <summary>اگر یکی از دسترسی‌ها را لغو کنم چه اتفاقی می‌افتد؟</summary>
+                    <div class="faq-content">ویژن به کار خود ادامه می‌دهد، اما ویژگی‌های خاص مرتبط با آن دسترسی (مثلاً مدیریت فایل یا انتخاب تصویر پس‌زمینه) تا زمانی که دسترسی دوباره اعطا نشود، غیرفعال خواهند بود.</div>
+                </details>
+            </div>
         </section>
 
         <div style="text-align: center;">
@@ -404,6 +612,10 @@
         &copy; 2026 Vision App - Developed by Mahdi Khosravi<br>
         Built for Ultimate Privacy & Professional Productivity
     </footer>
+
+    <button id="back-to-top" title="Back to Top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
 </div>
 
 <script>
@@ -411,6 +623,9 @@
     const btnFa = document.getElementById('btn-fa');
     const enContent = document.getElementById('english-content');
     const faContent = document.getElementById('persian-content');
+    const introEn = document.getElementById('intro-en');
+    const introFa = document.getElementById('intro-fa');
+    const readingTime = document.getElementById('reading-time');
 
     const setLanguage = (lang) => {
         if (lang === 'fa') {
@@ -418,17 +633,24 @@
             btnEn.classList.remove('active');
             faContent.style.display = 'block';
             enContent.style.display = 'none';
+            introFa.style.display = 'block';
+            introEn.style.display = 'none';
             document.documentElement.lang = 'fa';
             document.documentElement.dir = 'rtl';
+            readingTime.innerText = '⏱️ زمان مطالعه: ۴ دقیقه';
         } else {
             btnEn.classList.add('active');
             btnFa.classList.remove('active');
             enContent.style.display = 'block';
             faContent.style.display = 'none';
+            introEn.style.display = 'block';
+            introFa.style.display = 'none';
             document.documentElement.lang = 'en';
             document.documentElement.dir = 'ltr';
+            readingTime.innerText = '⏱️ 4 min read';
         }
         localStorage.setItem('vision-lang', lang);
+        addAnchors();
     };
 
     btnEn.addEventListener('click', (e) => {
@@ -503,6 +725,90 @@
         }
     });
 
+    // Progress Bar, Back to Top & Header Shrink Logic
+    const progressBar = document.getElementById('progress-bar');
+    const backToTopBtn = document.getElementById('back-to-top');
+    const navHeader = document.querySelector('.nav-header');
+
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+
+        // Toggle Back to Top
+        if (winScroll > 400) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+
+        // Floating Island
+        if (winScroll > 120) {
+            navHeader.classList.add('floating-island');
+        } else {
+            navHeader.classList.remove('floating-island');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Deep Linking & Anchors Logic
+    function addAnchors() {
+        const currentSectionId = document.documentElement.lang === 'fa' ? 'persian-content' : 'english-content';
+        const section = document.getElementById(currentSectionId);
+        const headers = section.querySelectorAll('h2, h3');
+        const tocContainer = document.getElementById('toc-container');
+        tocContainer.innerHTML = ''; // Clear existing TOC items
+
+        let h2Count = 0;
+
+        headers.forEach(h => {
+            // Remove existing anchors if any
+            const existing = h.querySelector('.anchor-link');
+            if (existing) existing.remove();
+
+            const text = h.innerText.toLowerCase().replace(/[^\w\u0600-\u06FF]+/g, '-');
+            h.id = text;
+
+            const anchor = document.createElement('a');
+            anchor.className = 'anchor-link';
+            anchor.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>';
+            anchor.title = "Copy direct link";
+            anchor.onclick = (e) => {
+                e.stopPropagation();
+                const url = window.location.origin + window.location.pathname + '#' + h.id;
+                navigator.clipboard.writeText(url).then(() => {
+                    const originalHTML = anchor.innerHTML;
+                    anchor.innerHTML = '<span style="font-size: 0.7rem; font-weight: bold;">COPIED!</span>';
+                    setTimeout(() => anchor.innerHTML = originalHTML, 2000);
+                });
+            };
+            h.prepend(anchor);
+
+            // Add to TOC if it's an H2
+            if (h.tagName === 'H2') {
+                h2Count++;
+                const tocItem = document.createElement('a');
+                tocItem.className = 'toc-item';
+                tocItem.href = '#' + h.id;
+                tocItem.innerHTML = `<span>${h2Count}</span> ${h.innerText}`;
+                tocItem.onclick = (e) => {
+                    e.preventDefault();
+                    const target = document.getElementById(h.id);
+                    const offset = document.querySelector('.nav-header').classList.contains('floating-island') ? 100 : 150;
+                    window.scrollTo({
+                        top: target.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                };
+                tocContainer.appendChild(tocItem);
+            }
+        });
+    }
+
     // Load saved preferences
     const savedTheme = localStorage.getItem('vision-theme') || 'indigo';
     const savedAppearance = localStorage.getItem('vision-appearance') || 'system';
@@ -513,6 +819,76 @@
     setAppearance(savedAppearance);
     setLanguage(savedLang);
     toggleThemeBar(savedThemeCollapsed);
+    // Particle Background Engine
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const particleCount = 60;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.size = Math.random() * 2 + 1;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary');
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary');
+
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 150) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = primaryColor;
+                    ctx.globalAlpha = 1 - (distance / 150);
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                    ctx.globalAlpha = 1;
+                }
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
 </script>
 
 </body>
