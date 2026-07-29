@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision - Comprehensive Privacy Policy</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-soft: #eef2ff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #0f172a;
+                --bg-card: #1e293b;
+                --text-main: #f1f5f9;
+                --text-muted: #94a3b8;
+                --border: #334155;
+                --primary-soft: rgba(99, 102, 241, 0.1);
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-body); color: var(--text-main); line-height: 1.8; transition: background-color 0.3s ease; }
+
+        .bg-gradient { position: fixed; top: 0; left: 0; right: 0; height: 450px; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); z-index: -1; opacity: 0.12; clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 100%); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+
+        .nav-header { display: flex; justify-content: center; margin-bottom: 50px; position: sticky; top: 20px; z-index: 100; }
+        .lang-nav { background: var(--bg-card); backdrop-filter: blur(12px); padding: 8px; border-radius: 999px; box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; gap: 8px; }
+        .lang-nav a { padding: 10px 30px; text-decoration: none; color: var(--text-muted); font-weight: 600; border-radius: 999px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 1rem; }
+        .lang-nav a:hover { color: var(--primary); background: var(--primary-soft); }
+        .lang-nav a.active { background: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
+
+        .main-card { background: var(--bg-card); border-radius: 32px; padding: 80px; box-shadow: var(--shadow); border: 1px solid var(--border); animation: slideUp 0.8s ease-out; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        .brand-section { text-align: center; margin-bottom: 70px; }
+        .app-icon { width: 100px; height: 100px; background: var(--primary); border-radius: 28px; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 50px; font-weight: 800; box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4); margin-bottom: 25px; }
+        h1 { font-size: 3rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.03em; }
+        .update-date { color: var(--text-muted); font-size: 1rem; font-weight: 500; margin-bottom: 20px; }
+
+        .intro-text { font-size: 1.15rem; color: var(--text-muted); text-align: center; max-width: 700px; margin: 0 auto 50px; line-height: 1.6; }
+
+        h2 { font-size: 1.8rem; color: var(--primary); margin: 60px 0 25px; display: flex; align-items: center; gap: 15px; }
+        h2::before { content: ""; width: 5px; height: 32px; background: var(--primary); border-radius: 999px; display: inline-block; }
+
+        h3 { font-size: 1.3rem; margin: 35px 0 15px; color: var(--text-main); font-weight: 700; }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 40px 0; }
+        .feature-item { background: var(--primary-soft); padding: 30px; border-radius: 24px; border: 1px solid transparent; transition: all 0.3s; }
+        .feature-item:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .feature-item h4 { color: var(--primary); margin-bottom: 12px; font-size: 1.25rem; font-weight: 700; }
+        .feature-item p { font-size: 0.95rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+        .legal-notice { background: var(--bg-body); border-left: 4px solid var(--primary); padding: 25px; border-radius: 0 16px 16px 0; margin: 30px 0; font-style: italic; }
+
+        .permission-section { margin: 40px 0; }
+        .permission-card { background: var(--bg-body); border: 1px solid var(--border); border-radius: 20px; padding: 25px; margin-bottom: 20px; transition: border-color 0.2s; }
+        .permission-card:hover { border-color: var(--primary); }
+        .permission-card strong { color: var(--primary); font-size: 1.1rem; display: block; margin-bottom: 8px; }
+        .permission-card p { font-size: 0.98rem; color: var(--text-muted); margin: 0; }
+
+        p { margin-bottom: 25px; font-size: 1.1rem; }
+        ul, ol { padding-left: 25px; margin-bottom: 25px; }
+        li { margin-bottom: 15px; font-size: 1.05rem; color: var(--text-muted); }
+
+        .rtl { direction: rtl; font-family: 'Vazirmatn', sans-serif; text-align: justify; }
+        .rtl h2::before { display: none; }
+        .rtl h2::after { content: ""; width: 5px; height: 32px; background: var(--primary); border-radius: 999px; display: inline-block; margin-right: 15px; }
+        .rtl .legal-notice { border-left: none; border-right: 4px solid var(--primary); border-radius: 16px 0 0 16px; }
+
+        .footer { text-align: center; margin-top: 60px; color: var(--text-muted); font-size: 1rem; border-top: 1px solid var(--border); padding-top: 40px; }
+        .btn-print { margin-top: 40px; padding: 15px 35px; background: var(--primary); border: none; border-radius: 15px; cursor: pointer; color: #fff; font-weight: 700; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
+        .btn-print:hover { transform: scale(1.05); opacity: 0.9; }
+
+        @media (max-width: 768px) { .main-card { padding: 50px 25px; } h1 { font-size: 2.2rem; } h2 { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+
+<div class="container">
+    <header class="nav-header">
+        <nav class="lang-nav">
+            <a href="#english" id="btn-en" class="active">English</a>
+            <a href="#persian" id="btn-fa">فارسی</a>
+        </nav>
+    </header>
+
+    <main class="main-card">
+        <div class="brand-section">
+            <div class="app-icon">V</div>
+            <h1>Vision</h1>
+            <p class="update-date">Official Privacy Policy • سیاست رسمی حریم خصوصی</p>
+            <div class="intro-text">This policy explains our commitment to transparency, data integrity, and user-centric privacy within the Vision environment.</div>
+        </div>
+
+        <!-- ENGLISH SECTION -->
+        <section id="english-content">
+            <p><strong>Last Updated: July 29, 2026</strong></p>
+
+            <p>Vision is a comprehensive desktop-like environment for Android, designed to transform your mobile experience into a professional workstation. It features a sophisticated multi-window system, an advanced file manager, integrated media players, and a customizable desktop interface, all while maintaining a strict focus on user privacy and performance.</p>
+
+            <h2>1. Our Privacy Philosophy</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Local-First Architecture</h4>
+                    <p>All core computational logic, including file processing, user session management, and database operations, occurs exclusively on your physical device.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Anonymity by Design</h4>
+                    <p>We do not require account creation, email linking, or phone verification. You interact with Vision as a completely anonymous entity.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Data Sovereignty</h4>
+                    <p>Your files are your own. Vision provides the tools to manage them but does not assert any ownership or access rights over your content.</p>
+                </div>
+            </div>
+
+            <h2>2. Detailed Data Handling</h2>
+            <p>To operate as a complete desktop-like environment, Vision requires specific system access:</p>
+
+            <div class="permission-card">
+                <strong>Manage External Storage</strong>
+                <p>Allows the app to provide a full-featured File Manager experience. We use this to display, move, rename, and delete your files locally. Vision does not transmit your directory structure or file metadata to any external server.</p>
+            </div>
+            <div class="permission-card">
+                <strong>Media Access (Images, Video, Audio)</strong>
+                <p>Used by the built-in Gallery and Music players to render your media files on screen. No data is transmitted.</p>
+            </div>
+            <div class="permission-card">
+                <strong>Write Settings & Wallpaper</strong>
+                <p>Allows you to customize your device's appearance directly from the Vision Desktop, such as setting system wallpapers from the app.</p>
+            </div>
+            <div class="permission-card">
+                <strong>Internet & Network State</strong>
+                <p>Used for functional requirements such as opening browser links, verifying open-source licenses, or checking connectivity for local-network features.</p>
+            </div>
+
+            <h3>A. Clipboard Extension</h3>
+            <p>The built-in Clipboard Manager monitors the system clipboard to provide a persistent history of copied items. This history is stored in a local <code>clipboard.db</code> SQLite database, protected by application-level sandboxing. You may clear this history at any time.</p>
+
+            <h3>B. User Profiles & Lockscreen</h3>
+            <p>Vision supports multiple local user profiles. Profile information (name, color, preferences) and Lockscreen credentials are stored locally. Passwords are processed using cryptographic hashing and <strong>AES Encryption</strong> before being saved, ensuring they remain unreadable even if the local database is accessed by unauthorized means.</p>
+
+            <h2>3. Security Standards</h2>
+            <p>We implement multi-layered security to protect your local workspace:</p>
+            <ul>
+                <li><strong>On-Device Encryption:</strong> Sensitive configuration data is encrypted using industry-standard AES protocols.</li>
+                <li><strong>Sandboxed Environment:</strong> Vision operates within its own application sandbox, preventing other malicious apps from easily accessing its internal databases.</li>
+                <li><strong>User Responsibility:</strong> Because Vision is a local-first app, the ultimate security of your data depends on your device's security (PIN, Pattern, or Biometrics). We recommend enabling system-level protection.</li>
+            </ul>
+
+            <h2>4. Children's Privacy (COPPA Compliance)</h2>
+            <p>Vision does not knowingly collect or solicit personal information from anyone under the age of 13. Since no data is transmitted to our servers, we do not build profiles of child users. If you are a parent or guardian and believe your child is using the app, please be assured that their data remains strictly on the device.</p>
+
+            <h2>5. Data Retention & Deletion</h2>
+            <p>Your data is retained on your device for as long as Vision is installed. You can permanently delete all app data by:</p>
+            <ol>
+                <li>Using the "Clear Data" option in Android System Settings.</li>
+                <li>Uninstalling the Vision application.</li>
+            </ol>
+            <p>Once uninstalled, all local databases (including Clipboard history and User profiles) are permanently purged by the Android OS.</p>
+
+            <h2>6. Changes to This Document</h2>
+            <div class="legal-notice">
+                This Privacy Policy is a living document and may be subject to periodic change and revision to reflect new features or legal requirements. We encourage users to review this page occasionally. Significant updates will be highlighted by a change in the "Last Updated" date.
+            </div>
+            <p><strong>Last Revision and Update: July 29, 2026</strong></p>
+
+            <h2>7. Contact Information</h2>
+            <p>If you have legal inquiries or technical questions regarding your privacy within Vision, please reach out via our official GitHub repository issue tracker.</p>
+        </section>
+
+        <!-- PERSIAN SECTION -->
+        <section id="persian-content" class="rtl" style="display: none;">
+            <p><strong>آخرین بروزرسانی: ۷ مرداد ۱۴۰۵</strong></p>
+
+            <p>ویژن یک محیط جامع شبیه دسکتاپ برای اندروید است که برای تبدیل تجربه موبایل شما به یک ایستگاه کاری حرفه‌ای طراحی شده است. این برنامه دارای سیستم چند‌پنجره‌ای پیشرفته، مدیریت فایل حرفه‌ای، پخش‌کننده‌های رسانه داخلی و رابط کاربری دسکتاپ با قابلیت شخصی‌سازی است، در حالی که تمرکز دقیق خود را بر حریم خصوصی و عملکرد کاربر حفظ می‌کند.</p>
+
+            <h2>۱. فلسفه حریم خصوصی ما</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>معماری مبتنی بر دستگاه</h4>
+                    <p>تمامی منطق محاسباتی اصلی، از جمله پردازش فایل‌ها، مدیریت نشست‌های کاربر و عملیات پایگاه داده، منحصراً روی دستگاه فیزیکی شما انجام می‌شود.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>ناشناسی کامل</h4>
+                    <p>ما نیازی به ایجاد حساب کاربری، پیوند ایمیل یا تأیید شماره تلفن نداریم. شما به عنوان یک هویت کاملاً ناشناس با ویژن تعامل دارید.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>حاکمیت بر داده‌ها</h4>
+                    <p>فایل‌های شما متعلق به شما هستند. ویژن ابزارهای مدیریت آن‌ها را فراهم می‌کند اما هیچ حق مالکیت یا دسترسی به محتوای شما برای خود قائل نیست.</p>
+                </div>
+            </div>
+
+            <h2>۲. تفکیک دقیق مجوزها</h2>
+            <p>برای عمل به عنوان یک محیط دسکتاپ کامل، ویژن به دسترسی‌های خاص سیستم نیاز دارد:</p>
+
+            <div class="permission-card">
+                <strong>مدیریت حافظه خارجی</strong>
+                <p>به برنامه اجازه می‌دهد تا یک تجربه مدیریت فایل کامل را ارائه دهد. ما از این برای نمایش، جابجایی، تغییر نام و حذف فایل‌های شما به صورت محلی استفاده می‌کنیم. ویژن ساختار پوشه‌ها یا متادیتای فایل‌های شما را به هیچ سرور خارجی ارسال نمی‌کند.</p>
+            </div>
+            <div class="permission-card">
+                <strong>دسترسی به رسانه (تصاویر، ویدیو، صدا)</strong>
+                <p>توسط گالری و پخش‌کننده موسیقی داخلی برای نمایش فایل‌های رسانه‌ای شما روی صفحه استفاده می‌شود. هیچ داده‌ای ارسال نمی‌شود.</p>
+            </div>
+            <div class="permission-card">
+                <strong>تغییر تنظیمات و تصویر پس‌زمینه</strong>
+                <p>به شما اجازه می‌دهد ظاهر دستگاه خود را مستقیماً از دسکتاپ ویژن شخصی‌سازی کنید، مانند تنظیم تصاویر پس‌زمینه سیستم از داخل برنامه.</p>
+            </div>
+            <div class="permission-card">
+                <strong>اینترنت و وضعیت شبکه</strong>
+                <p>برای نیازهای عملکردی مانند باز کردن لینک‌های مرورگر، بررسی لایسنس‌های متن‌باز یا بررسی اتصال برای ویژگی‌های شبکه محلی استفاده می‌شود.</p>
+            </div>
+
+            <h3>الف. افزونه کلیپ‌بورد</h3>
+            <p>مدیریت کلیپ‌بورد داخلی، کلیپ‌بورد سیستم را برای ارائه تاریخچه دائمی موارد کپی شده نظارت می‌کند. این تاریخچه در یک پایگاه داده محلی SQLite به نام <code>clipboard.db</code> ذخیره می‌شود که توسط محیط ایزوله برنامه محافظت می‌گردد. شما می‌توانید این تاریخچه را در هر زمان پاک کنید.</p>
+
+            <h3>ب. پروفایل‌های کاربر و صفحه قفل</h3>
+            <p>ویژن از چندین پروفایل کاربر محلی پشتیبانی می‌کند. اطلاعات پروفایل (نام، رنگ، تنظیمات) و اعتبارنامه‌های صفحه قفل به صورت محلی ذخیره می‌شوند. رمزهای عبور قبل از ذخیره شدن با استفاده از روش‌های درهم‌سازی (Hashing) و <strong>رمزنگاری AES</strong> پردازش می‌شوند تا حتی در صورت دسترسی غیرمجاز به پایگاه داده، غیرقابل خواندن باقی بمانند.</p>
+
+            <h2>۳. استانداردهای امنیتی</h2>
+            <p>ما امنیت چندلایه‌ای را برای محافظت از فضای کاری محلی شما پیاده‌سازی می‌کنیم:</p>
+            <ul>
+                <li><strong>رمزنگاری روی دستگاه:</strong> داده‌های حساس پیکربندی با استفاده از پروتکل‌های استاندارد AES رمزگذاری می‌شوند.</li>
+                <li><strong>محیط ایزوله (Sandbox):</strong> ویژن در محیط ایزوله خود عمل می‌کند که مانع از دسترسی آسان سایر برنامه‌های مخرب به پایگاه‌های داده داخلی آن می‌شود.</li>
+                <li><strong>مسئولیت کاربر:</strong> از آنجایی که ویژن یک برنامه مبتنی بر حافظه محلی است، امنیت نهایی داده‌های شما به امنیت دستگاهتان (پین، الگو یا بیومتریک) بستگی دارد. توصیه می‌کنیم محافظت در سطح سیستم را فعال کنید.</li>
+            </ul>
+
+            <h2>۴. حریم خصوصی کودکان (مطابق با COPPA)</h2>
+            <p>ویژن آگاهانه اطلاعات شخصی افراد زیر ۱۳ سال را جمع‌آوری یا درخواست نمی‌کند. از آنجایی که هیچ داده‌ای به سرورهای ما ارسال نمی‌شود، ما پروفایلی از کاربران کودک نمی‌سازیم. اگر والد یا سرپرست هستید، اطمینان داشته باشید که داده‌های فرزند شما صرفاً روی دستگاه باقی می‌ماند.</p>
+
+            <h2>۵. نگهداری و حذف داده‌ها</h2>
+            <p>داده‌های شما تا زمانی که ویژن نصب باشد، روی دستگاه شما باقی می‌ماند. شما می‌توانید با روش‌های زیر تمام داده‌های برنامه را برای همیشه پاک کنید:</p>
+            <ol>
+                <li>استفاده از گزینه "Clear Data" در تنظیمات سیستم اندروید.</li>
+                <li>لغو نصب (Uninstall) برنامه ویژن.</li>
+            </ol>
+            <p>پس از لغو نصب، تمام پایگاه‌های داده محلی (از جمله تاریخچه کلیپ‌بورد و پروفایل‌های کاربری) توسط سیستم‌عامل اندروید برای همیشه پاکسازی می‌شوند.</p>
+
+            <h2>۶. تغییرات در این سند</h2>
+            <div class="legal-notice">
+                این سیاست حریم خصوصی یک سند پویا است و ممکن است برای انعکاس ویژگی‌های جدید یا الزامات قانونی، به صورت دوره‌ای مورد تغییر و بازنگری قرار گیرد. ما کاربران را تشویق می‌کنیم که گهگاه این صفحه را بررسی کنند. بروزرسانی‌های مهم با تاریخ جدید "آخرین بروزرسانی" در اینجا مشخص خواهند شد.
+            </div>
+            <p><strong>تاریخ آخرین بازنگری و بروزرسانی: ۷ مرداد ۱۴۰۵</strong></p>
+
+            <h2>۷. اطلاعات تماس</h2>
+            <p>اگر پرسش حقوقی یا سوال فنی در مورد حریم خصوصی خود در ویژن دارید، لطفاً از طریق بخش Issue در مخزن رسمی گیت‌هاب ما با ما در ارتباط باشید.</p>
+        </section>
+
+        <div style="text-align: center;">
+            <button class="btn-print" onclick="window.print()">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                Print Official Policy / چاپ سیاست رسمی
+            </button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        &copy; 2026 Vision App - Developed by Mahdi Khosravi<br>
+        Built for Ultimate Privacy & Professional Productivity
+    </footer>
+</div>
+
+<script>
+    const btnEn = document.getElementById('btn-en');
+    const btnFa = document.getElementById('btn-fa');
+    const enContent = document.getElementById('english-content');
+    const faContent = document.getElementById('persian-content');
+
+    btnEn.addEventListener('click', (e) => {
+        e.preventDefault();
+        btnEn.classList.add('active');
+        btnFa.classList.remove('active');
+        enContent.style.display = 'block';
+        faContent.style.display = 'none';
+        window.scrollTo(0, 0);
+    });
+
+    btnFa.addEventListener('click', (e) => {
+        e.preventDefault();
+        btnFa.classList.add('active');
+        btnEn.classList.remove('active');
+        faContent.style.display = 'block';
+        enContent.style.display = 'none';
+        window.scrollTo(0, 0);
+    });
+</script>
+
+</body>
+</html>
+
