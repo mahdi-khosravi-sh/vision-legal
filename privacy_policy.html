@@ -3,313 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vision - Comprehensive Privacy Policy</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <title>Vision - Privacy Policy &amp; Info</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #1976D2; border-bottom: 2px solid #1976D2; padding-bottom: 10px; margin-bottom: 20px; }
+        h2 { color: #333; margin-top: 30px; border-right: 4px solid #1976D2; padding-right: 10px; }
+        .en h2 { border-right: none; border-left: 4px solid #1976D2; padding-left: 10px; padding-right: 0; }
+        .section { margin-bottom: 40px; }
+        .en { direction: ltr; text-align: left; font-family: sans-serif; }
+        hr { border: 0; height: 1px; background: #e0e0e0; margin: 40px 0; }
+        .welcome-box {
+            background-color: #E3F2FD;
+            border-left: none;
+            border-right: 5px solid #1976D2;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        .en .welcome-box {
+            border-right: none;
+            border-left: 5px solid #1976D2;
+        }
+        .welcome-box p { margin: 0 0 10px 0; font-weight: bold; color: #0D47A1; }
+        .welcome-box ol { margin: 0; padding-right: 20px; color: #1565C0; }
+        .en .welcome-box ol { padding-left: 20px; padding-right: 0; }
+        .welcome-box ol li { margin-bottom: 5px; }
 
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+        /* Print Button Styles */
+        .print-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn-print {
+            background-color: #1976D2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-print:hover {
+            background-color: #1565C0;
+        }
+
+        /* Hide print button when printing */
+        @media print {
+            .btn-print, .print-container {
+                display: none !important;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
 </head>
-<body id="top">
-
-<div id="progress-bar"></div>
-<canvas id="bg-canvas"></canvas>
+<body>
 
 <div class="container">
-    <nav class="lang-pill" id="lang-pill">
-        <a href="#english" id="btn-en">EN</a>
-        <a href="#persian" id="btn-fa" class="active">FA</a>
-    </nav>
 
-    <div class="settings-fab-container" id="settings-fab-container">
-        <button class="settings-fab" id="btn-settings-toggle" title="Customize Appearance">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-        </button>
-        <div class="settings-panel">
-            <div class="appearance-nav">
-                <button class="appearance-btn" data-appearance="light" title="Light Mode">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                </button>
-                <button class="appearance-btn" data-appearance="dark" title="Dark Mode">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </button>
-                <button class="appearance-btn active" data-appearance="system" title="System Default">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                </button>
-            </div>
-            <div class="theme-dots-container">
-                <div class="theme-dot dot-indigo active" data-theme="indigo" title="Indigo"></div>
-                <div class="theme-dot dot-emerald" data-theme="emerald" title="Emerald"></div>
-                <div class="theme-dot dot-rose" data-theme="rose" title="Rose"></div>
-                <div class="theme-dot dot-orange" data-theme="orange" title="Orange"></div>
-            </div>
+    <!-- PERSIAN SECTION -->
+    <div class="section">
+        <h1>سیاست حریم خصوصی برنامه Vision</h1>
+        <p><strong>آخرین بروزرسانی: شهریور ۱۴۰۵</strong></p>
+        <p>برنامه ویژن (Vision) به عنوان یک محیط دسکتاپ آفلاین برای اندروید، متعهد به حفظ کامل حریم خصوصی شماست. این برنامه هیچ‌گونه داده‌ای از شما جمع‌آوری یا منتقل نمی‌کند.</p>
+
+        <!-- معرفی و تشویق به مطالعه به همراه لیست عناوین -->
+        <div class="welcome-box">
+            <p>کاربر گرامی، پیشنهاد می‌کنیم برای آگاهی کامل از نحوه محافظت از اطلاعات خود، این سند را مطالعه فرمایید. این سیاست شامل موارد زیر است:</p>
+            <ol>
+                <li>درباره ویژن (معرفی کامل برنامه)</li>
+                <li>تغییرات در این سند</li>
+                <li>عملکرد کاملاً آفلاین و محلی (Local-First)</li>
+                <li>عدم نیاز به حساب کاربری و ناشناسی کامل</li>
+                <li>دسترسی‌های مورد نیاز در برنامه ویژن</li>
+                <li>امنیت، رمزنگاری کلمه‌های عبور و محیط ایزوله</li>
+                <li>سیاست شفاف عدم نمایش تبلیغات و ردیابی</li>
+                <li>نحوه نگهداری و حذف کامل داده‌های برنامه</li>
+            </ol>
         </div>
+
+        <h2>۱. درباره ویژن (Vision)</h2>
+        <p>برنامه <strong>ویژن (Vision)</strong> یک محیط شبیه‌ساز دسکتاپ جامع و چند‌پنجره‌ای برای سیستم‌عامل اندروید است که تجربه کاربری تلفن همراه شما را به یک ایستگاه کاری حرفه‌ای، خلاقانه و کاملاً مستقل تبدیل می‌کند. این اپلیکیشن با ارائه ابزارهای پیشرفته‌ای مانند مدیریت فایل محلی، پخش‌کننده‌های اختصاصی رسانه (گالری و موزیک‌پلیر)، سیستم مدیریت ابعاد پنجره‌ها، نوار وظیفه (Taskbar) هوشمند و مدیریت حافظه کلیپ‌بورد، بر دو اصل پایه‌ای استوار است: <strong>حفظ کامل حریم خصوصی کاربر</strong> و <strong>عملکرد مستقل از شبکه و اینترنت</strong>. ویژن به عنوان یک محصول کاملاً مبتنی بر حافظه دستگاه (Local-First)، تمام فرآیندهای محاسباتی را بدون وابستگی به سرور انجام می‌دهد.</p>
+
+        <h2>۲. تغییرات در این سند</h2>
+        <p>این سیاست حریم خصوصی یک سند پویا است و ممکن است برای انعکاس ویژگی‌های جدید یا الزامات قانونی، به صورت دوره‌ای مورد تغییر و بازنگری قرار گیرد. ما کاربران را تشویق می‌کنیم که گهگاه این صفحه را بررسی کنند. بروزرسانی‌های مهم با تاریخ جدید "آخرین بروزرسانی" مشخص خواهند شد.</p>
+
+        <h2>۳. عملکرد کاملاً آفلاین (Local-First)</h2>
+        <p>تمامی پردازش‌ها، مدیریت فایل‌ها، ذخیره تنظیمات و اطلاعات دیتابیس‌ها منحصراً روی حافظه دستگاه شما انجام می‌شود و هیچ اطلاعاتی به سرورهای خارجی ارسال نمی‌گردد.</p>
+
+        <h2>۴. عدم نیاز به حساب کاربری</h2>
+        <p>استفاده از برنامه کاملاً ناشناس است. ویژن نیازی به شماره تلفن، ایمیل، نام یا ثبت‌نام آنلاین ندارد.</p>
+
+        <h2>۵. دسترسی‌های مورد نیاز در برنامه ویژن</h2>
+        <ul>
+            <li><strong>مدیریت حافظه:</strong> فقط برای نمایش، جابجایی و مدیریت محلی فایل‌های شما در برنامه فایل‌منجر.</li>
+            <li><strong>رسانه‌ها:</strong> جهت پخش آفلاین فایل‌های صوتی و تصویری در گالری و موزیک‌پلیر داخلی.</li>
+            <li><strong>تنظیمات و تصویر زمینه:</strong> جهت اعمال تصاویر پس‌زمینه و شخصی‌سازی میزکار.</li>
+        </ul>
+        <p><strong>اگر یکی از دسترسی‌ها را لغو کنم چه اتفاقی می‌افتد؟</strong><br>
+        ویژن به کار خود ادامه می‌دهد، اما ویژگی‌های خاص مرتبط با آن دسترسی (مثلاً مدیریت فایل یا انتخاب تصویر پس‌زمینه) تا زمانی که دسترسی دوباره اعطا نشود، غیرفعال خواهند بود.</p>
+
+        <h2>۶. امنیت رمزنگاری</h2>
+        <p>اطلاعات حساسی مانند رمز عبور صفحه قفل محلی شما، قبل از ذخیره شدن در دیتابیس دستگاه، با استفاده از سیستم امن Android KeyStore و پروتکل AES کاملاً رمزنگاری می‌شوند.</p>
+
+        <h2>۷. تبلیغات و ردیابی</h2>
+        <p>این برنامه فاقد هرگونه کیت توسعه (SDK) تبلیغاتی، ابزارهای ردیابی (Tracking) یا آمارگیری شخص ثالث است.</p>
+
+        <h2>۸. نگهداری و حذف داده‌ها</h2>
+        <p>داده‌های شما تا زمانی که ویژن نصب باشد، روی دستگاه شما باقی می‌ماند. شما می‌توانید با روش‌های زیر تمام داده‌های برنامه را برای همیشه پاک کنید:</p>
+        <ul>
+            <li>استفاده از گزینه "Clear Data" in Android System Settings.</li>
+            <li>لغو نصب (Uninstall) برنامه ویژن.</li>
+        </ul>
+        <p>پس از لغو نصب، تمام پایگاه‌های داده محلی (از جمله تاریخچه کلیپ‌بورد و پروفایل‌های کاربری) توسط سیستم‌عامل اندروید برای همیشه پاکسازی می‌شوند.</p>
     </div>
 
-    <main class="main-card">
-        <div class="brand-section">
-            <div class="app-icon">V</div>
-            <h1>Vision</h1>
-            <p class="update-date">Official Privacy Policy • سیاست رسمی حریم خصوصی</p>
-            <div id="reading-time" class="reading-time" data-en="⏱️ 4 min read" data-fa="⏱️ زمان مطالعه: ۴ دقیقه"></div>
-            <div id="intro-en" class="intro-text">This policy explains our commitment to transparency, data integrity, and user-centric privacy within the Vision environment.</div>
-            <div id="intro-fa" class="intro-text" style="display: none;">این سیاست، تعهد ما به شفافیت، یکپارچگی داده‌ها و حریم خصوصی کاربر-محور در محیط ویژن را توضیح می‌دهد.</div>
+    <hr>
 
-            <!-- Dynamic Navigation Dashboard -->
-            <div id="toc-container" class="toc-container"></div>
+    <!-- ENGLISH SECTION -->
+    <div class="section en">
+        <h1>Vision App Privacy Policy</h1>
+        <p><strong>Last Updated: September 2026</strong></p>
+        <p>Vision operates as a secure, fully offline desktop environment for Android. We are committed to absolute user privacy. This app does not collect, track, or transmit any user data.</p>
+
+        <!-- Intro and encouragement to read with Table of Contents -->
+        <div class="welcome-box">
+            <p>Dear user, we highly encourage you to read this document to fully understand how your privacy is protected. This policy covers the following sections:</p>
+            <ol>
+                <li>About Vision (Core Description)</li>
+                <li>Living Document Periodic Changes &amp; Updates</li>
+                <li>Local-First Architecture &amp; Offline Performance</li>
+                <li>Total Anonymity &amp; No User Account Required</li>
+                <li>Required Permissions in Vision App</li>
+                <li>Data Encryption &amp; Private Android KeyStore Security</li>
+                <li>No Ads, Analytics, Tracking, or Telemetry Scripts</li>
+                <li>Data Retention &amp; Permanent Purging Procedures</li>
+            </ol>
         </div>
 
-        <!-- ENGLISH SECTION -->
-        <section id="english-content" style="display: none;">
-            <p><strong>Last Updated: July 29, 2026</strong></p>
+        <h2>1. About Vision</h2>
+        <p>The <strong>Vision</strong> application is a comprehensive multi-window desktop environment simulation for Android, meticulously engineered to transform your mobile experience into a professional, self-contained workstation. Featuring integrated capabilities such as local file management, dedicated multimedia players (Gallery and Music), a custom taskbar layout, window scaling management, and secure clipboard tracking, Vision is built entirely upon two foundational principles: <strong>absolute user privacy</strong> and <strong>network-independent performance</strong>. As a local-first application, Vision guarantees your data security by design; consequently, all core processing and database transactions occur offline on your physical hardware without server dependencies.</p>
 
-            <p>Vision is a comprehensive desktop-like environment for Android, designed to transform your mobile experience into a professional workstation. It features a sophisticated multi-window system, an advanced file manager, integrated media players, and a customizable desktop interface, all while maintaining a strict focus on user privacy and performance.</p>
+        <h2>2. Changes to This Document</h2>
+        <p>This Privacy Policy is a living document and may be subject to periodic change and revision to reflect new features or legal requirements. We encourage users to review this page occasionally. Significant updates will be highlighted by a change in the "Last Updated" date.</p>
 
-            <h2>1. Our Privacy Philosophy</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h4>Local-First Architecture</h4>
-                    <p>All core computational logic, including file processing, user session management, and database operations, occurs exclusively on your physical device.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Anonymity by Design</h4>
-                    <p>We do not require account creation, email linking, or phone verification. You interact with Vision as a completely anonymous entity.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Data Sovereignty</h4>
-                    <p>Your files are your own. Vision provides the tools to manage them but does not assert any ownership or access rights over your content.</p>
-                </div>
-            </div>
+        <h2>3. Local-First Architecture</h2>
+        <p>All core processing, file management, settings, and database transactions occur exclusively on your physical device. Zero data is transmitted to external servers.</p>
 
-            <h2>2. Detailed Data Handling</h2>
-            <p>To operate as a complete desktop-like environment, Vision requires specific system access:</p>
+        <h2>4. Total Anonymity</h2>
+        <p>No user account, email, phone number, or online registration is required. You interact with the app as a completely anonymous entity.</p>
 
-            <div class="permission-card">
-                <strong>Manage External Storage</strong>
-                <p>Allows the app to provide a full-featured File Manager experience. We use this to display, move, rename, and delete your files locally. Vision does not transmit your directory structure or file metadata to any external server.</p>
-            </div>
-            <div class="permission-card">
-                <strong>Media Access (Images, Video, Audio)</strong>
-                <p>Used by the built-in Gallery and Music players to render your media files on screen. No data is transmitted.</p>
-            </div>
-            <div class="permission-card">
-                <strong>Write Settings & Wallpaper</strong>
-                <p>Allows you to customize your device's appearance directly from the Vision Desktop, such as setting system wallpapers from the app.</p>
-            </div>
-            <div class="permission-card">
-                <strong>Internet & Network State</strong>
-                <p>Used for functional requirements such as opening browser links, verifying open-source licenses, or checking connectivity for local-network features.</p>
-            </div>
+        <h2>5. Required Permissions in Vision App</h2>
+        <ul>
+            <li><strong>Storage Access:</strong> Used solely to provide local file management operations (copy, move, rename, delete).</li>
+            <li><strong>Media Access:</strong> Used exclusively by the built-in media players to stream audio/video offline.</li>
+            <li><strong>Wallpaper Settings:</strong> Used to customize your workspace appearance directly from the desktop.</li>
+        </ul>
+        <p><strong>What happens if I revoke a permission?</strong><br>
+        Vision will continue to function, but specific features related to that permission (e.g., the File Manager or Wallpaper picker) will be disabled until the permission is re-granted.</p>
 
-            <h3>A. Clipboard Extension</h3>
-            <p>The built-in Clipboard Manager monitors the system clipboard to provide a persistent history of copied items. This history is stored in a local <code>clipboard.db</code> SQLite database, protected by application-level sandboxing. You may clear this history at any time.</p>
+        <h2>6. Data Encryption</h2>
+        <p>Sensitive local data, such as your local lockscreen credentials, are cryptographically hashed and secured using the Android KeyStore system and AES encryption protocols.</p>
 
-            <h3>B. User Profiles & Lockscreen</h3>
-            <p>Vision supports multiple local user profiles. Profile information (name, color, preferences) and Lockscreen credentials are stored locally. Passwords are processed using cryptographic hashing and <strong>AES Encryption</strong> before being saved, ensuring they remain unreadable even if the local database is accessed by unauthorized means.</p>
+        <h2>7. No Ads or Tracking</h2>
+        <p>Vision does not include any third-party advertising SDKs, analytics frameworks, or telemetry tracking scripts.</p>
 
-            <h2>3. Security Standards</h2>
-            <p>We implement multi-layered security to protect your local workspace:</p>
-            <ul>
-                <li><strong>On-Device Encryption:</strong> Sensitive configuration data is encrypted using industry-standard AES protocols.</li>
-                <li><strong>Sandboxed Environment:</strong> Vision operates within its own application sandbox, preventing other malicious apps from easily accessing its internal databases.</li>
-                <li><strong>User Responsibility:</strong> Because Vision is a local-first app, the ultimate security of your data depends on your device's security (PIN, Pattern, or Biometrics). We recommend enabling system-level protection.</li>
-            </ul>
+        <h2>8. Data Retention &amp; Deletion</h2>
+        <p>Your data stays on your device as long as the app is installed. You can permanently delete all app data by:</p>
+        <ul>
+            <li>Using the "Clear Data" option in Android System Settings.</li>
+            <li>Uninstalling the Vision application.</li>
+        </ul>
+        <p>Once uninstalled, all local databases (including Clipboard history and User profiles) are permanently purged by the Android OS.</p>
+    </div>
 
-            <h2>4. Children's Privacy (COPPA Compliance)</h2>
-            <p>Vision does not knowingly collect or solicit personal information from anyone under the age of 13. Since no data is transmitted to our servers, we do not build profiles of child users. If you are a parent or guardian and believe your child is using the app, please be assured that their data remains strictly on the device.</p>
+    <!-- Print Button Container -->
+    <div class="print-container">
+        <button class="btn-print" onclick="window.print()">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            چاپ سیاست رسمی / Print Official Policy
+        </button>
+    </div>
 
-            <h2>5. Data Retention & Deletion</h2>
-            <p>Your data is retained on your device for as long as Vision is installed. You can permanently delete all app data by:</p>
-            <ol>
-                <li>Using the "Clear Data" option in Android System Settings.</li>
-                <li>Uninstalling the Vision application.</li>
-            </ol>
-            <p>Once uninstalled, all local databases (including Clipboard history and User profiles) are permanently purged by the Android OS.</p>
-
-            <h2>6. Changes to This Document</h2>
-            <div class="legal-notice">
-                This Privacy Policy is a living document and may be subject to periodic change and revision to reflect new features or legal requirements. We encourage users to review this page occasionally. Significant updates will be highlighted by a change in the "Last Updated" date.
-            </div>
-            <p><strong>Last Revision and Update: July 29, 2026</strong></p>
-
-            <h2>7. Contact Information</h2>
-            <p>If you have legal inquiries or technical questions regarding your privacy within Vision, please reach out via our official GitHub repository issue tracker.</p>
-
-            <div class="faq-section">
-                <h2>Frequently Asked Questions</h2>
-                <details>
-                    <summary>Is my data synchronized with Google Drive?</summary>
-                    <div class="faq-content">No. Vision is local-first. We do not sync your files to any cloud provider unless you manually export them.</div>
-                </details>
-                <details>
-                    <summary>Can other apps read my Vision clipboard history?</summary>
-                    <div class="faq-content">No. The clipboard history is stored in an encrypted database within Vision's private sandbox.</div>
-                </details>
-                <details>
-                    <summary>What happens if I lose my phone?</summary>
-                    <div class="faq-content">Since your data is only on the device, it cannot be recovered from our servers. We recommend regular manual backups of your important files.</div>
-                </details>
-                <details>
-                    <summary>Does Vision track my physical location?</summary>
-                    <div class="faq-content">No. Vision does not access your device's GPS or location sensors. All operations are local and location-agnostic.</div>
-                </details>
-                <details>
-                    <summary>Can I use the app without an internet connection?</summary>
-                    <div class="faq-content">Yes. Vision is designed to work fully offline. Internet is only required if you explicitly use the built-in browser or web-based features.</div>
-                </details>
-                <details>
-                    <summary>Are my local passwords and lockscreen patterns secure?</summary>
-                    <div class="faq-content">Absolutely. Your credentials are never stored in plain text. They are hashed and encrypted using AES before being saved to the local database.</div>
-                </details>
-                <details>
-                    <summary>Does Vision show advertisements?</summary>
-                    <div class="faq-content">No. Vision is a professional workspace environment and does not include any third-party advertising SDKs or tracking scripts.</div>
-                </details>
-                <details>
-                    <summary>Can I manage files on an external SD card or USB drive?</summary>
-                    <div class="faq-content">Yes. If you grant the "All Files Access" permission, Vision can manage files across all recognized storage volumes, including removable media.</div>
-                </details>
-                <details>
-                    <summary>What happens if I revoke a permission?</summary>
-                    <div class="faq-content">Vision will continue to function, but specific features related to that permission (e.g., the File Manager or Wallpaper picker) will be disabled until the permission is re-granted.</div>
-                </details>
-            </div>
-        </section>
-
-        <!-- PERSIAN SECTION -->
-        <section id="persian-content" class="rtl">
-            <p><strong>آخرین بروزرسانی: ۷ مرداد ۱۴۰۵</strong></p>
-
-            <p>ویژن یک محیط جامع شبیه دسکتاپ برای اندروید است که برای تبدیل تجربه موبایل شما به یک ایستگاه کاری حرفه‌ای طراحی شده است. این برنامه دارای سیستم چند‌پنجره‌ای پیشرفته، مدیریت فایل حرفه‌ای، پخش‌کننده‌های رسانه داخلی و رابط کاربری دسکتاپ با قابلیت شخصی‌سازی است، در حالی که تمرکز دقیق خود را بر حریم خصوصی و عملکرد کاربر حفظ می‌کند.</p>
-
-            <h2>۱. فلسفه حریم خصوصی ما</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h4>معماری مبتنی بر دستگاه</h4>
-                    <p>تمامی منطق محاسباتی اصلی، از جمله پردازش فایل‌ها، مدیریت نشست‌های کاربر و عملیات پایگاه داده، منحصراً روی دستگاه فیزیکی شما انجام می‌شود.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>ناشناسی کامل</h4>
-                    <p>ما نیازی به ایجاد حساب کاربری، پیوند ایمیل یا تأیید شماره تلفن نداریم. شما به عنوان یک هویت کاملاً ناشناس با ویژن تعامل دارید.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>حاکمیت بر داده‌ها</h4>
-                    <p>فایل‌های شما متعلق به شما هستند. ویژن ابزارهای مدیریت آن‌ها را فراهم می‌کند اما هیچ حق مالکیت یا دسترسی به محتوای شما برای خود قائل نیست.</p>
-                </div>
-            </div>
-
-            <h2>۲. تفکیک دقیق مجوزها</h2>
-            <p>برای عمل به عنوان یک محیط دسکتاپ کامل، ویژن به دسترسی‌های خاص سیستم نیاز دارد:</p>
-
-            <div class="permission-card">
-                <strong>مدیریت حافظه خارجی</strong>
-                <p>به برنامه اجازه می‌دهد تا یک تجربه مدیریت فایل کامل را ارائه دهد. ما از این برای نمایش، جابجایی، تغییر نام و حذف فایل‌های شما به صورت محلی استفاده می‌کنیم. ویژن ساختار پوشه‌ها یا متادیتای فایل‌های شما را به هیچ سرور خارجی ارسال نمی‌کند.</p>
-            </div>
-            <div class="permission-card">
-                <strong>دسترسی به رسانه (تصاویر، ویدیو، صدا)</strong>
-                <p>توسط گالری و پخش‌کننده موسیقی داخلی برای نمایش فایل‌های رسانه‌ای شما روی صفحه استفاده می‌شود. هیچ داده‌ای ارسال نمی‌شود.</p>
-            </div>
-            <div class="permission-card">
-                <strong>تغییر تنظیمات و تصویر پس‌زمینه</strong>
-                <p>به شما اجازه می‌دهد ظاهر دستگاه خود را مستقیماً از دسکتاپ ویژن شخصی‌سازی کنید، مانند تنظیم تصاویر پس‌زمینه سیستم از داخل برنامه.</p>
-            </div>
-            <div class="permission-card">
-                <strong>اینترنت و وضعیت شبکه</strong>
-                <p>برای نیازهای عملکردی مانند باز کردن لینک‌های مرورگر، بررسی لایسنس‌های متن‌باز یا بررسی اتصال برای ویژگی‌های شبکه محلی استفاده می‌شود.</p>
-            </div>
-
-            <h3>الف. افزونه کلیپ‌بورد</h3>
-            <p>مدیریت کلیپ‌بورد داخلی، کلیپ‌بورد سیستم را برای ارائه تاریخچه دائمی موارد کپی شده نظارت می‌کند. این تاریخچه در یک پایگاه داده محلی SQLite به نام <code>clipboard.db</code> ذخیره می‌شود که توسط محیط ایزوله برنامه محافظت می‌گردد. شما می‌توانید این تاریخچه را در هر زمان پاک کنید.</p>
-
-            <h3>ب. پروفایل‌های کاربر و صفحه قفل</h3>
-            <p>ویژن از چندین پروفایل کاربر محلی پشتیبانی می‌کند. اطلاعات پروفایل (نام، رنگ، تنظیمات) و اعتبارنامه‌های صفحه قفل به صورت محلی ذخیره می‌شوند. رمزهای عبور قبل از ذخیره شدن با استفاده از روش‌های درهم‌سازی (Hashing) و <strong>رمزنگاری AES</strong> پردازش می‌شوند تا حتی در صورت دسترسی غیرمجاز به پایگاه داده، غیرقابل خواندن باقی بمانند.</p>
-
-            <h2>۳. استانداردهای امنیتی</h2>
-            <p>ما امنیت چندلایه‌ای را برای محافظت از فضای کاری محلی شما پیاده‌سازی می‌کنیم:</p>
-            <ul>
-                <li><strong>رمزنگاری روی دستگاه:</strong> داده‌های حساس پیکربندی با استفاده از پروتکل‌های استاندارد AES رمزگذاری می‌شوند.</li>
-                <li><strong>محیط ایزوله (Sandbox):</strong> ویژن در محیط ایزوله خود عمل می‌کند که مانع از دسترسی آسان سایر برنامه‌های مخرب به پایگاه‌های داده داخلی آن می‌شود.</li>
-                <li><strong>مسئولیت کاربر:</strong> از آنجایی که ویژن یک برنامه مبتنی بر حافظه محلی است، امنیت نهایی داده‌های شما به امنیت دستگاهتان (پین، الگو یا بیومتریک) بستگی دارد. توصیه می‌کنیم محافظت در سطح سیستم را فعال کنید.</li>
-            </ul>
-
-            <h2>۴. حریم خصوصی کودکان (مطابق با COPPA)</h2>
-            <p>ویژن آگاهانه اطلاعات شخصی افراد زیر ۱۳ سال را جمع‌آوری یا درخواست نمی‌کند. از آنجایی که هیچ داده‌ای به سرورهای ما ارسال نمی‌شود، ما پروفایلی از کاربران کودک نمی‌سازیم. اگر والد یا سرپرست هستید، اطمینان داشته باشید که داده‌های فرزند شما صرفاً روی دستگاه باقی می‌ماند.</p>
-
-            <h2>۵. نگهداری و حذف داده‌ها</h2>
-            <p>داده‌های شما تا زمانی که ویژن نصب باشد، روی دستگاه شما باقی می‌ماند. شما می‌توانید با روش‌های زیر تمام داده‌های برنامه را برای همیشه پاک کنید:</p>
-            <ol>
-                <li>استفاده از گزینه "Clear Data" در تنظیمات سیستم اندروید.</li>
-                <li>لغو نصب (Uninstall) برنامه ویژن.</li>
-            </ol>
-            <p>پس از لغو نصب، تمام پایگاه‌های داده محلی (از جمله تاریخچه کلیپ‌بورد و پروفایل‌های کاربری) توسط سیستم‌عامل اندروید برای همیشه پاکسازی می‌شوند.</p>
-
-            <h2>۶. تغییرات در این سند</h2>
-            <div class="legal-notice">
-                این سیاست حریم خصوصی یک سند پویا است و ممکن است برای انعکاس ویژگی‌های جدید یا الزامات قانونی، به صورت دوره‌ای مورد تغییر و بازنگری قرار گیرد. ما کاربران را تشویق می‌کنیم که گهگاه این صفحه را بررسی کنند. بروزرسانی‌های مهم با تاریخ جدید "آخرین بروزرسانی" مشخص خواهند شد.
-            </div>
-            <p><strong>تاریخ آخرین بازنگری و بروزرسانی: ۷ مرداد ۱۴۰۵</strong></p>
-
-            <h2>۷. اطلاعات تماس</h2>
-            <p>اگر پرسش حقوقی یا سوال فنی در مورد حریم خصوصی خود در ویژن دارید، لطفاً از طریق بخش Issue در مخزن رسمی گیت‌هاب ما با ما در ارتباط باشید.</p>
-
-            <div class="faq-section">
-                <h2>سوالات متداول</h2>
-                <details>
-                    <summary>آیا داده‌های من با گوگل درایو همگام‌سازی می‌شوند؟</summary>
-                    <div class="faq-content">خیر. ویژن مبتنی بر حافظه محلی است. ما فایل‌های شما را با هیچ فضای ابری همگام‌سازی نمی‌کنیم، مگر اینکه خودتان به صورت دستی از آن‌ها خروجی بگیرید.</div>
-                </details>
-                <details>
-                    <summary>آیا برنامه‌های دیگر می‌توانند تاریخچه کلیپ‌بورد من را بخوانند؟</summary>
-                    <div class="faq-content">خیر. تاریخچه کلیپ‌بورد در یک پایگاه داده رمزگذاری شده در محیط ایزوله اختصاصی ویژن ذخیره می‌شود.</div>
-                </details>
-                <details>
-                    <summary>اگر گوشی خود را گم کنم چه اتفاقی می‌افتد؟</summary>
-                    <div class="faq-content">از آنجایی که داده‌های شما فقط روی دستگاه است، از سرورهای ما قابل بازیابی نیست. توصیه می‌کنیم از فایل‌های مهم خود به طور مرتب نسخه پشتیبان دستی تهیه کنید.</div>
-                </details>
-                <details>
-                    <summary>آیا ویژن موقعیت مکانی من را ردیابی می‌کند؟</summary>
-                    <div class="faq-content">خیر. ویژن به جی‌پی‌اس (GPS) یا سنسورهای موقعیت مکانی دستگاه شما دسترسی ندارد. تمامی عملیات به صورت محلی و بدون نیاز به موقعیت مکانی انجام می‌شوند.</div>
-                </details>
-                <details>
-                    <summary>آیا می‌توانم بدون اتصال به اینترنت از برنامه استفاده کنم؟</summary>
-                    <div class="faq-content">بله. ویژن به گونه‌ای طراحی شده است که به طور کامل آفلاین کار کند. اینترنت تنها در صورتی لازم است که خودتان بخواهید از مرورگر داخلی یا ویژگی‌های وب‌محور استفاده کنید.</div>
-                </details>
-                <details>
-                    <summary>آیا رمزهای عبور محلی و الگوهای صفحه قفل من امن هستند؟</summary>
-                    <div class="faq-content">قطعاً. اعتبارنامه‌های شما هرگز به صورت متن ساده ذخیره نمی‌شوند. آن‌ها قبل از ذخیره شدن در پایگاه داده محلی، با استفاده از درهم‌سازی (Hashing) و رمزنگاری AES محافظت می‌شوند.</div>
-                </details>
-                <details>
-                    <summary>آیا ویژن تبلیغات نمایش می‌دهد؟</summary>
-                    <div class="faq-content">خیر. ویژن یک محیط کاری حرفه‌ای است و شامل هیچ‌گونه کیت توسعه (SDK) تبلیغاتی شخص ثالث یا اسکریپت‌های ردیابی نمی‌باشد.</div>
-                </details>
-                <details>
-                    <summary>آیا می‌توانم فایل‌های کارت حافظه یا فلش مموری را مدیریت کنم؟</summary>
-                    <div class="faq-content">بله. در صورت اعطای مجوز "دسترسی به همه فایل‌ها"، ویژن می‌تواند فایل‌ها را در تمامی حافظه‌های شناسایی شده، از جمله حافظه‌های جانبی، مدیریت کند.</div>
-                </details>
-                <details>
-                    <summary>اگر یکی از دسترسی‌ها را لغو کنم چه اتفاقی می‌افتد؟</summary>
-                    <div class="faq-content">ویژن به کار خود ادامه می‌دهد، اما ویژگی‌های خاص مرتبط با آن دسترسی (مثلاً مدیریت فایل یا انتخاب تصویر پس‌زمینه) تا زمانی که دسترسی دوباره اعطا نشود، غیرفعال خواهند بود.</div>
-                </details>
-            </div>
-        </section>
-
-        <div style="text-align: center;">
-            <button class="btn-print" onclick="window.print()">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                Print Official Policy / چاپ سیاست رسمی
-            </button>
-        </div>
-    </main>
-
-    <footer class="footer">
-        &copy; 2026 Vision App - Developed by Mahdi Khosravi<br>
-        Built for Ultimate Privacy & Professional Productivity
-    </footer>
-
-    <button id="back-to-top" title="Back to Top">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-    </button>
 </div>
 
 </body>
