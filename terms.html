@@ -4,240 +4,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vision - Terms of Service</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #1976D2; border-bottom: 2px solid #1976D2; padding-bottom: 10px; margin-bottom: 20px; }
+        h2 { color: #333; margin-top: 30px; border-right: 4px solid #1976D2; padding-right: 10px; }
+        .en h2 { border-right: none; border-left: 4px solid #1976D2; padding-left: 10px; padding-right: 0; }
+        .section { margin-bottom: 40px; }
+        .en { direction: ltr; text-align: left; font-family: sans-serif; }
+        hr { border: 0; height: 1px; background: #e0e0e0; margin: 40px 0; }
+        .welcome-box {
+            background-color: #E3F2FD;
+            border-left: none;
+            border-right: 5px solid #1976D2;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        .en .welcome-box {
+            border-right: none;
+            border-left: 5px solid #1976D2;
+        }
+        .welcome-box p { margin: 0 0 10px 0; font-weight: bold; color: #0D47A1; }
+        .welcome-box ol { margin: 0; padding-right: 20px; color: #1565C0; }
+        .en .welcome-box ol { padding-left: 20px; padding-right: 0; }
+        .welcome-box ol li { margin-bottom: 5px; }
 
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
+        /* Print Button Styles */
+        .print-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn-print {
+            background-color: #1976D2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-print:hover {
+            background-color: #1565C0;
+        }
+
+        /* Hide print button when printing */
+        @media print {
+            .btn-print, .print-container {
+                display: none !important;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 0;
+            }
+        }
+    </style>
 </head>
-<body id="top">
-
-<div id="progress-bar"></div>
-<canvas id="bg-canvas"></canvas>
+<body>
 
 <div class="container">
-    <nav class="lang-pill" id="lang-pill">
-        <a href="#english" id="btn-en">EN</a>
-        <a href="#persian" id="btn-fa" class="active">FA</a>
-    </nav>
 
-    <div class="settings-fab-container" id="settings-fab-container">
-        <button class="settings-fab" id="btn-settings-toggle" title="Customize Appearance">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-        </button>
-        <div class="settings-panel">
-            <div class="appearance-nav">
-                <button class="appearance-btn" data-appearance="light" title="Light Mode">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                </button>
-                <button class="appearance-btn" data-appearance="dark" title="Dark Mode">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </button>
-                <button class="appearance-btn active" data-appearance="system" title="System Default">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                </button>
-            </div>
-            <div class="theme-dots-container">
-                <div class="theme-dot dot-indigo active" data-theme="indigo" title="Indigo"></div>
-                <div class="theme-dot dot-emerald" data-theme="emerald" title="Emerald"></div>
-                <div class="theme-dot dot-rose" data-theme="rose" title="Rose"></div>
-                <div class="theme-dot dot-orange" data-theme="orange" title="Orange"></div>
-            </div>
+    <!-- PERSIAN SECTION -->
+    <div class="section">
+        <h1>شرایط استفاده از خدمات</h1>
+        <p><strong>آخرین بروزرسانی: شهریور ۱۴۰۵</strong></p>
+        <p>متن پیش رو توضیحی درباره شرایط استفاده از برنامه ویژن و تمامی خدمات و سرویس‌های ارائه شده از طریق آن است. با نصب و استفاده از برنامه ویژن (Vision)، شما موافقت خود را با تمامی بندهای ذکر شده در این سند اعلام می‌دارید. لطفاً برای آشنایی با شرایط استفاده از ویژن این سند را مطالعه کنید.</p>
+
+        <!-- فهرست مطالب -->
+        <div class="welcome-box">
+            <p>این سند شامل موارد زیر است:</p>
+            <ol>
+                <li>شرایط لازم</li>
+                <li>محدودیت‌های کاربر و فعالیت‌های ممنوعه</li>
+                <li>حریم خصوصی</li>
+                <li>مسئولیت داده‌ها</li>
+                <li>قطع دسترسی توسط توسعه‌دهنده</li>
+                <li>نحوه پایان دادن به استفاده از ویژن</li>
+                <li>سلب مسئولیت</li>
+                <li>تغییرات در این سند</li>
+            </ol>
         </div>
+
+        <h2>۱. شرایط لازم</h2>
+        <p>جهت بهره‌مندی از خدمات برنامه ویژن، رعایت موارد زیر الزامی است:</p>
+        <ul>
+            <li><strong>صلاحیت قانونی:</strong> کاربر باید دارای اهلیت قانونی لازم جهت پذیرش قراردادهای رسمی و توافق‌نامه‌های کاربری باشد.</li>
+            <li><strong>سازگاری فنی:</strong> مسئولیت بررسی و اطمینان از سازگاری کامل دستگاه با نیازمندی‌های سخت‌افزاری و نرم‌افزاری ذکر شده در صفحه برنامه بر عهده کاربر است.</li>
+            <li><strong>صحت عملکرد دستگاه:</strong> مسئولیت اختلالات ناشی از تغییرات غیررسمی سیستم‌عامل (مانند روت کردن) یا نصب پوسته‌های کاستوم بر عهده کاربر خواهد بود.</li>
+        </ul>
+
+        <h2>۲. محدودیت‌های کاربر و فعالیت‌های ممنوعه</h2>
+        <p>شما موافقت می‌کنید که از انجام فعالیت‌های زیر خودداری کنید:</p>
+        <ul>
+            <li><strong>مهندسی معکوس:</strong> مهندسی معکوس، دکامپایل، جداسازی یا هرگونه تلاش برای استخراج کد منبع برنامه.</li>
+            <li><strong>کپی‌برداری غیرمجاز:</strong> کپی، تکثیر، توزیع مجدد و یا بازنشر غیرقانونی بخش یا تمام محتوای برنامه (شامل کدها، آیکون‌ها، تصاویر و رابط کاربری).</li>
+            <li><strong>تغییرات ساختاری:</strong> ایجاد هرگونه تغییر در فایل‌های سیستمی، دیتابیس‌های محلی و یا دور زدن مکانیسم‌های امنیتی و حفاظتی برنامه.</li>
+            <li><strong>استفاده مخرب:</strong> استفاده از برنامه برای اهداف غیرقانونی، مخرب و یا ارسال بدافزار از طریق ابزارهای داخلی آن.</li>
+            <li><strong>بهره‌برداری تجاری:</strong> استفاده تجاری از خدمات ویژن یا فروش مجدد قابلیت‌های آن بدون کسب اجازه کتبی از توسعه‌دهنده.</li>
+        </ul>
+
+        <h2>۳. حریم خصوصی</h2>
+        <p>سیاست‌نامه حریم خصوصی ویژن که در <a href="privacy_policy.html">این بخش</a> در دسترس است، رویکرد ویژن را در این باره به صورت شفاف توضیح می‌دهد. لازم به ذکر است که این سیاست‌نامه بخشی جدایی‌ناپذیر از شرایط استفاده از ویژن و خدمات آن محسوب می‌شود.</p>
+
+        <h2>۴. مسئولیت داده‌ها</h2>
+        <p>مسئولیت نهایی نگهداری از داده‌ها، رمزهای عبور و فایل‌های ذخیره شده بر عهده کاربر است. در صورت بروز هرگونه مشکل سخت‌افزاری یا حذف دستی داده‌ها، امکان بازیابی از سمت سرور وجود نخواهد داشت.</p>
+
+        <h2>۵. قطع دسترسی توسط توسعه‌دهنده</h2>
+        <p>توسعه‌دهنده حق دارد در صورت نقض قوانین یا به دلایل امنیتی، دسترسی به نسخه‌های خاص یا به‌روزرسانی‌های برنامه را محدود یا متوقف کند.</p>
+
+        <h2>۶. نحوه پایان دادن به استفاده از ویژن</h2>
+        <p>ما به صورت مستمر در تلاشیم تا سرویس‌های خود را بهبود بخشیم و در همین راستا ممکن است در هر زمان، ویژگی‌ها یا عملکردهایی را به برنامه اضافه یا از آن حذف کنیم؛ همچنین ممکن است ارائه یک سرویس را به طور کامل متوقف کرده و یا محدودیت‌های جدیدی برای آن وضع کنیم. با این حال، شما می‌توانید در هر زمان با لغو نصب (Uninstall) برنامه و یا پاک کردن داده‌های آن از بخش تنظیمات اندروید (Clear Data)، به استفاده خود از ویژن پایان دهید. با انجام این کار، تمامی اطلاعات محلی، تنظیمات و پروفایل‌های شما برای همیشه از روی دستگاه حذف خواهد شد.</p>
+
+        <h2>۷. سلب مسئولیت</h2>
+        <p>این برنامه «همانگونه که هست» ارائه می‌شود. توسعه‌دهنده هیچ تضمینی مبنی بر عدم وجود باگ‌های احتمالی یا سازگاری کامل با تمامی نسخه‌های کاستوم اندروید ارائه نمی‌دهد، اگرچه تمام تلاش خود را برای پایداری کامل به کار می‌گیرد.</p>
+
+        <h2>۸. تغییرات در این سند</h2>
+        <p>مطالب ذکر شده در این سند دائمی نیستند و ممکن است با توجه به تغییر در سیاست‌های ویژن، افزودن قابلیت‌های جدید و یا الزامات قانونی، دستخوش تغییر و تجدید نظر شوند. ویژن این حق را برای خود محفوظ می‌دارد که در هر زمان نسبت به اصلاح یا جایگزینی این قوانین اقدام نماید.</p>
+
     </div>
 
-    <main class="main-card">
-        <div class="brand-section">
-            <div class="app-icon">V</div>
-            <h1>Vision</h1>
-            <p class="update-date">Official Terms of Service • شرایط استفاده رسمی</p>
-            <div id="reading-time" class="reading-time" data-en="⏱️ 3 min read" data-fa="⏱️ زمان مطالعه: ۳ دقیقه"></div>
-            <div id="intro-en" class="intro-text">These terms govern your use of the Vision desktop environment. By using our application, you agree to these legal conditions.</div>
-            <div id="intro-fa" class="intro-text" style="display: none;">این شرایط بر استفاده شما از محیط دسکتاپ ویژن حاکم است. با استفاده از برنامه ما، شما با این شرایط قانونی موافقت می‌کنید.</div>
+    <hr>
 
-            <!-- Dynamic Navigation Dashboard -->
-            <div id="toc-container" class="toc-container"></div>
+    <!-- ENGLISH SECTION -->
+    <div class="section en">
+        <h1>Terms of Service</h1>
+        <p><strong>Last Updated: September 2026</strong></p>
+        <p>The following text explains the terms of use for the Vision application and all services provided through it. By installing and using Vision (Vision), you acknowledge and agree to be bound by all the terms set forth in this document. Please read this document carefully to familiarize yourself with the terms of use for Vision.</p>
+
+        <div class="welcome-box">
+            <p>This document covers the following sections:</p>
+            <ol>
+                <li>Requirements</li>
+                <li>User Restrictions &amp; Prohibited Activities</li>
+                <li>Privacy</li>
+                <li>Data Responsibility</li>
+                <li>Termination of Access by Developer</li>
+                <li>How to Stop Using Vision</li>
+                <li>Disclaimer</li>
+                <li>Changes to This Document</li>
+            </ol>
         </div>
 
-        <!-- ENGLISH SECTION -->
-        <section id="english-content" style="display: none;">
-            <p><strong>Last Updated: August 1, 2026</strong></p>
+        <h2>1. Requirements</h2>
+        <p>To use the services provided by Vision, you must comply with the following:</p>
+        <ul>
+            <li><strong>Legal Capacity:</strong> You must have the legal authority and capacity to enter into binding contracts and accept this User Agreement.</li>
+            <li><strong>Technical Compatibility:</strong> It is the user's responsibility to verify and ensure that their device is fully compatible with the requirements listed on the app page.</li>
+            <li><strong>Device Integrity:</strong> Any disruptions resulting from unofficial system modifications (such as rooting) or custom ROMs are the sole responsibility of the user.</li>
+        </ul>
 
-            <p>Welcome to Vision. These Terms of Service ("Terms") are a legal agreement between you and Vision ("we", "us", or "our") regarding your use of the Vision Android application and its associated features.</p>
+        <h2>2. User Restrictions &amp; Prohibited Activities</h2>
+        <p>You agree not to engage in any of the following prohibited activities:</p>
+        <ul>
+            <li><strong>Reverse Engineering:</strong> Reverse engineering, decompiling, disassembling, or any attempt to extract the source code of the application.</li>
+            <li><strong>Unauthorized Copying:</strong> Copying, reproducing, redistributing, or illegally republishing part or all of the application's content (including code, icons, images, and UI/UX).</li>
+            <li><strong>Structural Modifications:</strong> Modifying internal system files, local databases, or bypassing the application's security and protection mechanisms.</li>
+            <li><strong>Malicious Use:</strong> Using the application for any illegal or malicious purposes, or transmitting malware through its internal tools.</li>
+            <li><strong>Commercial Exploitation:</strong> Commercial use of Vision's services or reselling its features without prior written consent from the developer.</li>
+        </ul>
 
-            <h2>1. Acceptance of Terms</h2>
-            <p>By downloading, installing, or using Vision, you agree to be bound by these Terms. If you do not agree to these Terms, do not use the application. Your continued use of Vision signifies your acceptance of any changes made to these Terms over time.</p>
+        <h2>3. Privacy</h2>
+        <p>Vision's Privacy Policy is available at <a href="privacy_policy.html">this section</a>, which transparently explains Vision's approach to privacy. Please note that this privacy policy is an integral part of Vision's Terms of Service and its related services.</p>
 
-            <h2>2. License Grant</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h4>Personal Use</h4>
-                    <p>We grant you a personal, non-exclusive, non-transferable, revocable license to use Vision for your personal, non-commercial purposes on your Android device.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Restrictions</h4>
-                    <p>You may not decompile, reverse engineer, or attempt to extract the source code of Vision unless permitted by law or an open-source license that governs specific components.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Ownership</h4>
-                    <p>Vision and its original content, features, and functionality are and will remain the exclusive property of Mahdi Khosravi and its licensors.</p>
-                </div>
-            </div>
+        <h2>4. Data Responsibility</h2>
+        <p>The user bears ultimate responsibility for data integrity, passwords, and stored files. In the event of hardware failure or manual data deletion, recovery via remote servers is not possible.</p>
 
-            <h2>3. User Conduct</h2>
-            <p>You agree not to use Vision for any unlawful purpose or in any way that interrupts, damages, or impairs the service. Prohibited activities include:</p>
-            <ul>
-                <li>Using the application to violate any local, state, national, or international law.</li>
-                <li>Transmitting or storing malicious code, viruses, or any other harmful software.</li>
-                <li>Attempting to gain unauthorized access to any part of the application or its related systems.</li>
-                <li>Using Vision to infringe upon the intellectual property rights of others.</li>
-            </ul>
+        <h2>5. Termination of Access by Developer</h2>
+        <p>The developer reserves the right to restrict or suspend access to specific versions or updates in case of terms violation or for security reasons.</p>
 
-            <h2>4. Local-First Responsibility</h2>
-            <div class="policy-card">
-                <strong>Data Persistence</strong>
-                <p>Vision is a local-first application. All your files, configurations, and session data are stored exclusively on your device. We do not maintain backups of your data on our servers.</p>
-            </div>
-            <div class="policy-card">
-                <strong>Backup Responsibility</strong>
-                <p>You are solely responsible for backing up your files and data. We are not liable for any loss of data resulting from device failure, app uninstallation, or accidental deletion.</p>
-            </div>
+        <h2>6. How to Stop Using Vision</h2>
+        <p>We are constantly working to improve our services; accordingly, we may add or remove features or functionalities at any time. We may also suspend or stop a service altogether or introduce new limitations. However, you may terminate your use of Vision at any time by uninstalling the application or clearing its data via Android System Settings (Clear Data). By doing so, all local information, settings, and user profiles will be permanently removed from your device.</p>
 
-            <h2>5. Disclaimer of Warranties</h2>
-            <div class="legal-notice">
-                VISION IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. WE EXPRESSLY DISCLAIM ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-            </div>
-            <p>We do not warrant that Vision will be uninterrupted, timely, secure, or error-free, or that any defects in the application will be corrected.</p>
+        <h2>7. Disclaimer</h2>
+        <p>The application is provided "As-Is." While we strive for maximum stability, the developer offers no warranties regarding the absence of bugs or full compatibility with all customized Android versions.</p>
 
-            <h2>6. Limitation of Liability</h2>
-            <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL VISION OR ITS DEVELOPERS BE LIABLE FOR ANY INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATING TO THE USE OF, OR INABILITY TO USE, THE SERVICE.</p>
+        <h2>8. Changes to This Document</h2>
+        <p>The contents mentioned in this document are not permanent and may undergo changes and revisions based on shifts in Vision's policies, the addition of new features, or legal requirements. Vision reserves the right to modify or replace these rules at any time.</p>
+    </div>
 
-            <h2>7. Governing Law</h2>
-            <p>These Terms shall be governed and construed in accordance with the laws of your jurisdiction, without regard to its conflict of law provisions. Any dispute arising from these Terms shall be resolved in the competent courts of your jurisdiction.</p>
+    <!-- Print Button Container -->
+    <div class="print-container">
+        <button class="btn-print" onclick="window.print()">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            چاپ قوانین / Print Terms of Service
+        </button>
+    </div>
 
-            <h2>8. Changes to Terms</h2>
-            <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice before any new terms take effect. What constitutes a material change will be determined at our sole discretion.</p>
-
-            <p><strong>Last Revision: August 1, 2026</strong></p>
-
-            <h2>9. Contact Us</h2>
-            <p>If you have any questions about these Terms, please contact us through our official GitHub repository.</p>
-
-            <div class="faq-section">
-                <h2>Frequently Asked Questions</h2>
-                <details>
-                    <summary>Is Vision free to use?</summary>
-                    <div class="faq-content">Yes, Vision is currently free for personal use. Future updates may introduce premium features.</div>
-                </details>
-                <details>
-                    <summary>Can I use Vision for my business?</summary>
-                    <div class="faq-content">The current license is for personal use. For commercial use inquiries, please contact the developer.</div>
-                </details>
-                <details>
-                    <summary>What happens if the app crashes and I lose my work?</summary>
-                    <div class="faq-content">As per our disclaimer, we are not liable for data loss. We recommend frequent saving and external backups.</div>
-                </details>
-            </div>
-        </section>
-
-        <!-- PERSIAN SECTION -->
-        <section id="persian-content" class="rtl">
-            <p><strong>آخرین بروزرسانی: ۱۱ مرداد ۱۴۰۵</strong></p>
-
-            <p>به ویژن خوش آمدید. این شرایط استفاده (شرایط) یک توافق قانونی بین شما و ویژن (ما) در رابطه با استفاده شما از اپلیکیشن اندروید ویژن و ویژگی‌های مرتبط با آن است.</p>
-
-            <h2>۱. پذیرش شرایط</h2>
-            <p>با دانلود، نصب یا استفاده از ویژن، شما موافقت می‌کنید که پایبند به این شرایط باشید. اگر با این شرایط موافق نیستید، از اپلیکیشن استفاده نکنید. ادامه استفاده شما از ویژن به معنای پذیرش هرگونه تغییر در این شرایط در طول زمان است.</p>
-
-            <h2>۲. اعطای مجوز</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h4>استفاده شخصی</h4>
-                    <p>ما به شما مجوزی شخصی، غیر انحصاری، غیر قابل انتقال و قابل لغو برای استفاده از ویژن جهت مقاصد شخصی و غیرتجاری در دستگاه اندرویدی شما اعطا می‌کنیم.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>محدودیت‌ها</h4>
-                    <p>شما مجاز به مهندسی معکوس یا تلاش برای استخراج کد منبع ویژن نیستید، مگر اینکه توسط قانون یا مجوزهای متن‌باز حاکم بر اجزای خاص مجاز باشد.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>مالکیت</h4>
-                    <p>ویژن و محتوای اصلی، ویژگی‌ها و عملکردهای آن دارایی انحصاری مهدی خسروی و واگذارکنندگان مجوز به آن بوده و باقی خواهد ماند.</p>
-                </div>
-            </div>
-
-            <h2>۳. رفتار کاربر</h2>
-            <p>شما موافقت می‌کنید که از ویژن برای هیچ هدف غیرقانونی یا به روشی که باعث اختلال، آسیب یا تضعیف سرویس شود استفاده نکنید. فعالیت‌های ممنوعه عبارتند از:</p>
-            <ul>
-                <li>استفاده از اپلیکیشن برای نقض هرگونه قانون محلی، ملی یا بین‌المللی.</li>
-                <li>انتقال یا ذخیره کدهای مخرب، ویروس‌ها یا هر نرم‌افزار مضر دیگر.</li>
-                <li>تلاش برای دسترسی غیرمجاز به هر بخش از اپلیکیشن یا سیستم‌های مرتبط با آن.</li>
-                <li>استفاده از ویژن برای نقض حقوق مالکیت معنوی دیگران.</li>
-            </ul>
-
-            <h2>۴. مسئولیت مبتنی بر حافظه محلی</h2>
-            <div class="policy-card">
-                <strong>ماندگاری داده‌ها</strong>
-                <p>ویژن یک اپلیکیشن مبتنی بر حافظه محلی است. تمام فایل‌ها، تنظیمات و داده‌های نشست شما منحصراً در دستگاه شما ذخیره می‌شوند. ما نسخه‌ای از داده‌های شما را در سرورهای خود نگه نمی‌داریم.</p>
-            </div>
-            <div class="policy-card">
-                <strong>مسئولیت پشتیبان‌گیری</strong>
-                <p>شما مسئولیت کامل پشتیبان‌گیری از فایل‌ها و داده‌های خود را بر عهده دارید. ما در قبال از دست رفتن داده‌ها ناشی از خرابی دستگاه، لغو نصب برنامه یا حذف تصادفی مسئولیتی نداریم.</p>
-            </div>
-
-            <h2>۵. سلب مسئولیت از ضمانت‌ها</h2>
-            <div class="legal-notice">
-                ویژن بر اساس "همانگونه که هست" و "در حد امکان" ارائه می‌شود. ما صراحتاً هرگونه ضمانت از هر نوع، اعم از صریح یا ضمنی را سلب می‌کنیم، از جمله ضمانت‌های ضمنی خرید و فروش، تناسب برای هدفی خاص و عدم نقض حقوق دیگران.
-            </div>
-            <p>ما تضمین نمی‌کنیم که ویژن بدون وقفه، به موقع، امن یا بدون خطا باشد، یا اینکه هرگونه نقص در اپلیکیشن اصلاح شود.</p>
-
-            <h2>۶. محدودیت مسئولیت</h2>
-            <p>تا حد مجاز توسط قانون، در هیچ شرایطی ویژن یا توسعه‌دهندگان آن در قبال خسارات غیرمستقیم، تنبیهی، اتفاقی، خاص یا تبعی، از جمله از دست دادن سود، اعتبار، استفاده، داده‌ها یا سایر زیان‌های غیرملموس مسئولیتی نخواهند داشت.</p>
-
-            <h2>۷. قوانین حاکم</h2>
-            <p>این شرایط بر اساس قوانین حوزه قضایی شما تفسیر و اجرا خواهد شد. هرگونه اختلاف ناشی از این شرایط در دادگاه‌های ذی‌صلاح حوزه قضایی شما حل و فصل خواهد شد.</p>
-
-            <h2>۸. تغییرات در شرایط</h2>
-            <p>ما این حق را برای خود محفوظ می‌داریم که در هر زمان، به تشخیص خود، این شرایط را تغییر دهیم یا جایگزین کنیم. در صورت تغییر اساسی، حداقل ۳۰ روز قبل از اجرایی شدن شرایط جدید اطلاع‌رسانی خواهیم کرد. تشخیص اینکه چه چیزی تغییر اساسی محسوب می‌شود، بر عهده ماست.</p>
-
-            <p><strong>آخرین بازنگری: ۱۱ مرداد ۱۴۰۵</strong></p>
-
-            <h2>۹. تماس با ما</h2>
-            <p>اگر سوالی در مورد این شرایط دارید، لطفاً از طریق مخزن رسمی ما در گیت‌هاب با ما تماس بگیرید.</p>
-
-            <div class="faq-section">
-                <h2>سوالات متداول</h2>
-                <details>
-                    <summary>آیا استفاده از ویژن رایگان است؟</summary>
-                    <div class="faq-content">بله، ویژن در حال حاضر برای استفاده شخصی رایگان است. بروزرسانی‌های آینده ممکن است ویژگی‌های ویژه (Premium) را معرفی کنند.</div>
-                </details>
-                <details>
-                    <summary>آیا می‌توانم از ویژن برای کسب و کار خود استفاده کنم؟</summary>
-                    <div class="faq-content">مجوز فعلی برای استفاده شخصی است. برای سوالات مربوط به استفاده تجاری، لطفاً با توسعه‌دهنده تماس بگیرید.</div>
-                </details>
-                <details>
-                    <summary>اگر برنامه کرش کند و کارهای من پاک شود چه می‌شود؟</summary>
-                    <div class="faq-content">طبق سلب مسئولیت ما، ما در قبال از دست رفتن داده‌ها مسئولیتی نداریم. توصیه می‌کنیم ذخیره‌سازی مکرر و پشتیبان‌گیری خارجی انجام دهید.</div>
-                </details>
-            </div>
-        </section>
-
-        <div style="text-align: center;">
-            <button class="btn-print" onclick="window.print()">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                Print Official Terms / چاپ شرایط رسمی
-            </button>
-        </div>
-    </main>
-
-    <footer class="footer">
-        &copy; 2026 Vision App - Developed by Mahdi Khosravi<br>
-        Legal Agreement for Professional Productivity
-    </footer>
-
-    <button id="back-to-top" title="Back to Top">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-    </button>
 </div>
 
 </body>
